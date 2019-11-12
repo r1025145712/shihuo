@@ -8,6 +8,7 @@ module.exports={
                 changeOrigin:true,
                 pathRewrite:{
                     "^api":"homefis",
+                    "^api":"youhui",
                 }
             }
         }
