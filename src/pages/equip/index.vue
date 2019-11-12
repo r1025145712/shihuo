@@ -1,13 +1,6 @@
 <template>
   <div>
-    <div class="page">
-        <div class="search">
-            <div class="search-box">
-                <span class="iconfont iconxingtaiduICON_sousuo--"></span>
-                <input type="text" placeholder="搜索全网低价好券">
-            </div>
-            <div class="user"><img src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/widget/header/head_list_4a4f511.png" alt=""></div>
-        </div>
+   
 
        
     </div>
