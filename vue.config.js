@@ -3,9 +3,12 @@ const path =require('path');
 module.exports={
     devServer:{
         proxy:{
-            "/homefis":{
+            "/api":{
                 target:"http://m.shihuo.cn",
-                changeOrigin:true
+                changeOrigin:true,
+                pathRewrite:{
+                    "^api":"homefis",
+                }
             }
         }
     },
