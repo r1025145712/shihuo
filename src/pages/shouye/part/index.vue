@@ -51,66 +51,16 @@
             <section class="hot-activity clearfix">
                 <h3>热门活动</h3>
                 <ul>
-                    <li>
-                        <a href="">
+                    <router-link :to="item.path"  tag="li" v-for="(item,index) in activitys" :key="index">
+                        <a >
                             <div class="img">
-                                <img src="http://shihuo.hupucdn.com/appHome/201808/1710/5e683699826e2a13abd239e4e4e36793.jpg"
+                                <img :src="item.img"
                                     alt="">
                             </div>
-                            <p class="p1">skullcandy骷髅头耳机</p>
-                            <p class="p2"><span>券后低至89元起</span></p>
+                            <p class="p1">{{item.text}}</p>
+                            <p class="p2"><span>{{item.name}}</span></p>
                         </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="img">
-                                <img src="http://shihuo.hupucdn.com/appZone/201805/1414/c5f797407c24e87cb7648abc937e9955.jpg"
-                                    alt="">
-                            </div>
-                            <p class="p1">热门资讯</p>
-                            <p class="p2"><span>最新最热门的数码资讯</span></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="img">
-                                <img src="http://shihuo.hupucdn.com/appZone/201803/2617/e6ae975eca6480b86354e92fa866a8e1.jpg"
-                                    alt="">
-                            </div>
-                            <p class="p1">跑步评测室</p>
-                            <p class="p2"><span>最炫酷的跑步装备评测</span></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="img">
-                                <img src="http://shihuo.hupucdn.com/appZone/201811/1214/2720301b13ee5c2b0003f78125b698ea.jpg"
-                                    alt="">
-                            </div>
-                            <p class="p1">1000块包全身</p>
-                            <p class="p2"><span>不说虚话</span></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="img">
-                                <img src="http://shihuo.hupucdn.com/appZone/201811/1214/ea91521753d0e0f95f4a5c82094aee79.jpg"
-                                    alt="">
-                            </div>
-                            <p class="p1">考虑一下荧光绿</p>
-                            <p class="p2"><span>要想生活过的去</span></p>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="">
-                            <div class="img">
-                                <img src="http://shihuo.hupucdn.com/appZone/201811/1214/7d721a0762b1a4762557aa33c75e6404.jpg"
-                                    alt="">
-                            </div>
-                            <p class="p1">花鸟市场行</p>
-                            <p class="p2"><span>今天穿这样</span></p>
-                        </a>
-                    </li>
+                    </router-link>
                 </ul>
             </section>
   </div>
@@ -167,11 +117,46 @@ export default {
       ],
       activitys:[
          {
-          sign: "zone0",
-          text: "纯白系列秒杀",
-          name: "篮球",
+          path: "/brand",
+          text: "skullcandy骷髅头耳机",
+          name: "券后低至89元起",
           img:
-            "http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
+            "http://shihuo.hupucdn.com/appHome/201808/1710/5e683699826e2a13abd239e4e4e36793.jpg"
+        },
+         {
+          path: "/brand",
+          text: "热门资讯",
+          name: "最新最热门的数码资讯",
+          img:
+            "http://shihuo.hupucdn.com/appZone/201805/1414/c5f797407c24e87cb7648abc937e9955.jpg"
+        },
+         {
+          path: "/brand",
+          text: "跑步评测室",
+          name: "最炫酷的跑步装备评测",
+          img:
+            "http://shihuo.hupucdn.com/appZone/201803/2617/e6ae975eca6480b86354e92fa866a8e1.jpg"
+        },
+         {
+          path: "/brand",
+          text: "1000块包全身",
+          name: "不说虚话",
+          img:
+            "http://shihuo.hupucdn.com/appZone/201811/1214/2720301b13ee5c2b0003f78125b698ea.jpg"
+        },
+         {
+          path: "/brand",
+          text: "考虑一下荧光绿",
+          name: "要想生活过的去",
+          img:
+            "http://shihuo.hupucdn.com/appZone/201811/1214/ea91521753d0e0f95f4a5c82094aee79.jpg"
+        },
+          {
+          path: "/brand",
+          text: "花鸟市场行",
+          name: "今天穿这样",
+          img:
+            "http://shihuo.hupucdn.com/appZone/201811/1214/7d721a0762b1a4762557aa33c75e6404.jpg"
         },
       ]
     };

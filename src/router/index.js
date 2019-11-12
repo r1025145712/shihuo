@@ -6,6 +6,7 @@ import Preferential from "./preferential"
 import More from  './more'
 import Equip from  './equip'
 import Register from './register'
+import Brand from './brand/'
 Vue.use(VueRouter)
 
 
@@ -23,7 +24,8 @@ const router = new VueRouter({
     Preferential,
     More,
     Equip,
-    Register
+    Register,
+    Brand
   ]
 
 })
