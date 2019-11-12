@@ -16,7 +16,7 @@ const router = new VueRouter({
   linkActiveClass:'active',
   routes:[
     {
-      path:"",
+      path:"/",
       redirect: "/shouye",
     },
     Index,

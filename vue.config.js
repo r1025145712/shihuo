@@ -7,7 +7,7 @@ module.exports={
                 target:"http://m.shihuo.cn",
                 changeOrigin:true,
                 pathRewrite:{
-                    "^api":"homefis",
+                    "/api":"",
                 }
             }
         }
@@ -23,6 +23,7 @@ module.exports={
                 "@common":path.join(__dirname,"./src/common"),
                 "@utils":path.join(__dirname,"./src/utils"),
                 "@pages":path.join(__dirname,"./src/pages"),
+                "@api":path.join(__dirname,"./src/api"),
             }
         }
     }

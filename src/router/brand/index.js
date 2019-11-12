@@ -7,50 +7,56 @@ export default {
         tabBarFlag:true,
         requiredAuth:false
     },
-    children:[{
-                path:"whole",
-                component:()=>import("@pages/brand/whole/index"),
-                meta:{
-                    title:"全部",
-                    tabBarFlag:true,
-                    requiredAuth:false
-                }
+    children:[
+            {
+                path:"/brand",
+                redirect:"/brand/whole/0"
             },
             {
-                path:"motion",
-                component:()=>import("@pages/brand/whole/index"),
+                path:"whole/:id",
+                component:()=>import("@components/whole"),
                 meta:{
                     title:"全部",
                     tabBarFlag:true,
-                    requiredAuth:false
+                    requiredAuth:true
                 }
             },
-            {
-                path:"clothes",
-                component:()=>import("@pages/brand/whole/index"),
-                meta:{
-                    title:"全部",
-                    tabBarFlag:true,
-                    requiredAuth:false
-                }
-            },
-            {
-                path:"digital",
-                component:()=>import("@pages/brand/whole/index"),
-                meta:{
-                    title:"全部",
-                    tabBarFlag:true,
-                    requiredAuth:false
-                }
-            },
-            {
-                path:"other",
-                component:()=>import("@pages/brand/whole/index"),
-                meta:{
-                    title:"全部",
-                    tabBarFlag:true,
-                    requiredAuth:false
-                }
-            },
+            // {
+            //     path:"whole/:id",
+            //     component:()=>import("@components/whole"),
+            //     meta:{
+            //         title:"运动",
+            //         tabBarFlag:true,
+            //         requiredAuth:false
+            //     }
+            // },
+            // {
+            //     path:"whole/:id",
+            //     component:()=>import("@components/whole"),
+            //     meta:{
+            //         title:"男装",
+            //         tabBarFlag:true,
+            //         requiredAuth:false
+            //     }
+            // },
+            // {
+            //     path:"whole/:id",
+            //     component:()=>import("@components/whole"),
+            //     name:"digital",
+            //     meta:{
+            //         title:"数码",
+            //         tabBarFlag:true,
+            //         requiredAuth:false
+            //     }
+            // },
+            // {
+            //     path:"whole/:id",
+            //     component:()=>import("@components/whole"),
+            //     meta:{
+            //         title:"其他",
+            //         tabBarFlag:true,
+            //         requiredAuth:false
+            //     }
+            // },
         ]
 }
