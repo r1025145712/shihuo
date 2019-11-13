@@ -27,6 +27,18 @@ const router = new VueRouter({
     Register,
     Brand,
     {
+      name:"Basketball",
+      path:"/basketball",
+      component:() =>import ("@pages/basketball")
+
+    },
+    {
+      name:"Running",
+      path:"/running",
+      component:() =>import ("@pages/running")
+
+    },
+    {
       path: "/column",
       component: () => import("@pages/column"),
       name: "column",

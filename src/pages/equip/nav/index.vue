@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="banner-area">
+    <div class="banner-area" @click = "handlerBasketbal">
       <div class="bg-img">
         <img
           src="http://shihuo.hupucdn.com/appZones/201701/1815/18dad2cc843300a3560cca54886957e5.png?imageView2/0/w/400/h/208/interlace/1"
@@ -51,7 +51,7 @@
       </div>
     </div>
 
-    <div class="banner-area">
+    <div class="banner-area" @click = "handlerRunning">
       <div class="bg-img">
         <img
           src="http://shihuo.hupucdn.com/appZones/201701/1815/fa1b657f6d267f5ccb6c3213ba7cebd3.png?imageView2/0/w/400/h/208/interlace/1"
@@ -163,17 +163,17 @@
       <div class="tag-list">
         <a href v-for="(item,index) in tag[2].taglistone" :key="index">{{item}}</a>
 
-       <img
-            src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/icon-3_b996a60.png"
-            alt
-          />
+        <img
+          src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/icon-3_b996a60.png"
+          alt
+        />
       </div>
       <div class="tag-list">
-          <a href v-for="(item,index) in tag[2].taglisttwo" :key="index">{{item}}</a>
-       <img
-            src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/icon-3_b996a60.png"
-            alt
-          />
+        <a href v-for="(item,index) in tag[2].taglisttwo" :key="index">{{item}}</a>
+        <img
+          src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/icon-3_b996a60.png"
+          alt
+        />
       </div>
     </div>
 
@@ -236,12 +236,12 @@
 
     <div class="tag-areas">
       <div class="tag-list">
-          <a href v-for="(item,index) in tag[3].taglistone" :key="index">{{item}}</a>
+        <a href v-for="(item,index) in tag[3].taglistone" :key="index">{{item}}</a>
 
-       <img
-            src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/icon-3_b996a60.png"
-            alt
-          />
+        <img
+          src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/zhuangbei/index/icon-3_b996a60.png"
+          alt
+        />
       </div>
     </div>
   </div>
@@ -271,6 +271,15 @@ export default {
         }
       ]
     };
+  },
+  methods:{
+    handlerBasketbal(){
+      this.$router.push("/basketball");
+    },
+    handlerRunning(){
+      this.$router.push("/running");
+      
+    }
   }
 };
 </script>

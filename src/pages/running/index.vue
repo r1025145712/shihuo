@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <Topbar title="篮球专区"></Topbar>
-    <div class="main">
+    <div>
+        <Topbar title="跑步专区"></Topbar>
+         <div class="main">
       <div class="menu_block">
         <ul>
           <li v-for="(item,index) in menu.listOne" :key="index">
@@ -30,70 +30,70 @@
         </div>
       </div>
     </div>
-  </div>
+    </div>
 </template>
 
 
 <script>
+
 export default {
-  data() {
+    data() {
     return {
       menu: {
         listOne: [
           {
-            img: "http://sh1.hoopchina.com.cn/images/trade/app/lanqiuxie2.png",
-            title: "篮球鞋"
+            img: "http://sh1.hoopchina.com.cn/images/trade/app/paobuxie1.png",
+            title: "跑步鞋"
           },
           {
-            img: "http://sh1.hoopchina.com.cn/images/trade/app/qiuyi2.png",
-            title: "篮球上装"
+            img: "http://sh1.hoopchina.com.cn/images/trade/app/paobufuzhuang2.png",
+            title: "跑步上装"
           },
           {
-            img: "http://sh1.hoopchina.com.cn/images/trade/app/qiuku2.png",
-            title: "篮球下装"
+            img: "http://sh1.hoopchina.com.cn/images/trade/app/paobuduanku1.png",
+            title: "跑步下装"
           },
           {
-            img: "http://sh1.hoopchina.com.cn/images/trade/app/lanqiuhuju1.png",
-            title: "篮球配件"
+            img: "http://sh1.hoopchina.com.cn/images/trade/app/paobupeijian2.png",
+            title: "跑步配件"
           },
            {
-            img: "http://sh1.hoopchina.com.cn/images/trade/app/lanqiu2.png",
-            title: "篮球"
+            img: "http://sh1.hoopchina.com.cn/images/trade/app/paobupeijian2.png",
+            title: "运动补给"
           }
 
         ],
         listTwo: [
           {
-            img: "http://sh1.hoopchina.com.cn/images/trade/app/Jordan.png",
-            title: "Jordan"
-          },
-          {
             img: "http://sh1.hoopchina.com.cn/images/trade/app/adidas.png",
             title: "adidas"
+          },
+          {
+            img: "http://sh1.hoopchina.com.cn/images/trade/app/asics.png",
+            title: "asics"
+          },
+          {
+            img: "http://sh1.hoopchina.com.cn/images/trade/app/NewBalance.png",
+            title: "New Balance"
           },
           {
             img: "http://sh1.hoopchina.com.cn/images/trade/app/nike1.png",
             title: "Nike"
           },
           {
-            img: "http://sh1.hoopchina.com.cn/images/trade/app/ua.png",
-            title: "UA"
-          },
-          {
             img: "http://sh1.hoopchina.com.cn/images/trade/app/morebrand.png",
-            title: "全部"
+            title: ""
           }
         ]
       }
     };
   }
-};
+}
 </script>
 
 
 <style scoped>
-
-.menu_block{
+    .menu_block{
     width: 100%;
     font-size: .1rem;
     padding: .05rem;
@@ -172,5 +172,4 @@ export default {
 .menu_block>.hosttext .right>p{
     width: 35%;height: .3rem;
 }
-
 </style>
