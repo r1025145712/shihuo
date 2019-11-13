@@ -47,28 +47,34 @@
         </p>
       </a>
     </section>
-      <!-- 热门活动 -->
-            <section class="hot-activity clearfix">
-                <h3>热门活动</h3>
-                <ul>
-                    <router-link :to="item.path"  tag="li" v-for="(item,index) in activitys" :key="index">
-                        <a >
-                            <div class="img">
-                                <img :src="item.img"
-                                    alt="">
-                            </div>
-                            <p class="p1">{{item.text}}</p>
-                            <p class="p2"><span>{{item.name}}</span></p>
-                        </a>
-                    </router-link>
-                </ul>
-            </section>
+    <!-- 热门活动 -->
+    <section class="hot-activity clearfix">
+      <h3>热门活动</h3>
+      <ul>
+        <router-link :to="item.path" tag="li" v-for="(item,index) in activitys" :key="index">
+          <a>
+            <div class="img">
+              <img :src="item.img" alt />
+            </div>
+            <p class="p1">{{item.text}}</p>
+            <p class="p2">
+              <span>{{item.name}}</span>
+            </p>
+          </a>
+        </router-link>
+      </ul>
+    </section>
+    <!-- 商品列表 -->
+  <List/>
   </div>
 </template>
 
 <script>
+import List from '../list'
 export default {
-  components: {},
+  components: {
+    List
+  },
   data() {
     return {
       tabs: [
@@ -115,49 +121,49 @@ export default {
             "http://shihuo.hupucdn.com/def/20180108/d46c35eb43ed513783e8db72e97e06a71515391268.jpg?imageView2/0/w/160/h/160/interlace/1"
         }
       ],
-      activitys:[
-         {
+      activitys: [
+        {
           path: "/brand",
           text: "skullcandy骷髅头耳机",
           name: "券后低至89元起",
           img:
             "http://shihuo.hupucdn.com/appHome/201808/1710/5e683699826e2a13abd239e4e4e36793.jpg"
         },
-         {
+        {
           path: "/brand",
           text: "热门资讯",
           name: "最新最热门的数码资讯",
           img:
             "http://shihuo.hupucdn.com/appZone/201805/1414/c5f797407c24e87cb7648abc937e9955.jpg"
         },
-         {
+        {
           path: "/column",
           text: "跑步评测室",
           name: "最炫酷的跑步装备评测",
           img:
             "http://shihuo.hupucdn.com/appZone/201803/2617/e6ae975eca6480b86354e92fa866a8e1.jpg"
         },
-         {
+        {
           path: "/brand",
           text: "1000块包全身",
           name: "不说虚话",
           img:
             "http://shihuo.hupucdn.com/appZone/201811/1214/2720301b13ee5c2b0003f78125b698ea.jpg"
         },
-         {
+        {
           path: "/brand",
           text: "考虑一下荧光绿",
           name: "要想生活过的去",
           img:
             "http://shihuo.hupucdn.com/appZone/201811/1214/ea91521753d0e0f95f4a5c82094aee79.jpg"
         },
-          {
+        {
           path: "/brand",
           text: "花鸟市场行",
           name: "今天穿这样",
           img:
             "http://shihuo.hupucdn.com/appZone/201811/1214/7d721a0762b1a4762557aa33c75e6404.jpg"
-        },
+        }
       ]
     };
   }
@@ -213,102 +219,98 @@ export default {
 }
 
 /* 列表 */
-.hot{
-    
-    margin: .025rem;
-    background: #f0f3f5;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
-  
+.hot {
+  margin: 0.025rem;
+  background: #f0f3f5;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 .hot .block {
-    text-align: center;
-    padding: .06rem 0;
-    width: 1rem;
-    float: left;
-    background: #fff;
-    margin: .02rem;
+  text-align: center;
+  padding: 0.06rem 0;
+  width: 1rem;
+  float: left;
+  background: #fff;
+  margin: 0.02rem;
 }
 .hot .block h2 {
-    font-size: .12rem;
-    color: #333;
-    font-weight: 400;
+  font-size: 0.12rem;
+  color: #333;
+  font-weight: 400;
 }
 .hot .block p.desc {
-    font-size: .1rem;
-    color: #666;
-    margin: .04rem 0;
-    margin-bottom: .085rem;
-    width: 100%;
+  font-size: 0.1rem;
+  color: #666;
+  margin: 0.04rem 0;
+  margin-bottom: 0.085rem;
+  width: 100%;
 }
 .hot .block p.imgs {
-   width: 1rem;
-    height: .5rem;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
+  width: 1rem;
+  height: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .hot .block p.imgs img {
-    width: .51rem;
+  width: 0.51rem;
 }
-
 
 /* 热门活动 */
 
 .hot-activity {
-    background: #FFF;
-    margin: .03rem .055rem;
+  background: #fff;
+  margin: 0.03rem 0.055rem;
 }
 .hot-activity h3 {
-    font-size: .14rem;
-    line-height:.15rem;
-    padding: .1rem .15rem;
-    margin-bottom: .05rem;
+  font-size: 0.14rem;
+  line-height: 0.15rem;
+  padding: 0.1rem 0.15rem;
+  margin-bottom: 0.05rem;
 }
 .hot-activity ul {
-    padding: 0 .15rem;
-    display: flex;
-    flex-wrap: wrap;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
+  padding: 0 0.15rem;
+  display: flex;
+  flex-wrap: wrap;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 .hot-activity ul li {
-    float: left;
-    width: 32%;
-    margin-right: 1.2%;
-    margin-bottom: .125rem;
-    box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
+  float: left;
+  width: 32%;
+  margin-right: 1.2%;
+  margin-bottom: 0.125rem;
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
 }
 .hot-activity ul li .img {
-    height: .57rem;
-    overflow: hidden;
-    margin-bottom: .04rem;
+  height: 0.57rem;
+  overflow: hidden;
+  margin-bottom: 0.04rem;
 }
 .hot-activity ul li .img img {
-    width: 100%;
+  width: 100%;
 }
 .hot-activity ul li .p1 {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .hot-activity ul li .p1 {
-    font-weight: 700;
-    font-size: .12rem;
-    width: 100%;
+  font-weight: 700;
+  font-size: 0.12rem;
+  width: 100%;
 }
 .hot-activity ul li .p2 {
-    color: #666;
-    text-align: left;
+  color: #666;
+  text-align: left;
 }
 .hot-activity ul li p {
-    line-height: .15rem;
+  line-height: 0.15rem;
 }
 .hot-activity ul li .p2 span {
-    display: inline-block;
-    font-size: .12rem;
-    transform: scale(0.8333);
+  display: inline-block;
+  font-size: 0.12rem;
+  transform: scale(0.8333);
 }
 </style>

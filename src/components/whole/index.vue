@@ -58,7 +58,7 @@ export default {
       let data = await brandApi(r);
       this.brandList = data.data.newDate;
       document.title=this.$route.meta.title;
-      console.log(this.brandList[0].goods_info)
+      
     }
   }
 };

@@ -8,16 +8,28 @@ export default {
         requiredAuth:false
     },
 //     children:[{
-//         path:"comming",
-//         component:Comming,
+//         path:"commend",
+//         component:()=>import("@components/list/commend.vue"),
+//         meta:{
+//             title:"推荐",
+//             tabBarFlag:true,
+//             requiredAuth:false
+//         }
+//     },
+//     {
+//         path:"basketball",
+//         component:()=>import("@components/list/commend.vue"),
+
 //         meta:{
 //             title:"篮球",
 //             tabBarFlag:true,
 //             requiredAuth:false
-//         }
+//         },
+        
 //     },{
-//         path:"soom",
-//         component:Soom,
+//         path:"running",
+//         component:()=>import("@components/list/commend.vue"),
+
 //         meta:{
 //             title:"跑步",
 //             tabBarFlag:true,
@@ -26,8 +38,9 @@ export default {
         
 //     },
 //     {
-//         path:"soom",
-//         component:Soom,
+//         path:"fitness",
+//         component:()=>import("@components/list/commend.vue"),
+ 
 //         meta:{
 //             title:"健身",
 //             tabBarFlag:true,
@@ -36,18 +49,9 @@ export default {
         
 //     },
 //     {
-//         path:"soom",
-//         component:Soom,
-//         meta:{
-//             title:"足球",
-//             tabBarFlag:true,
-//             requiredAuth:false
-//         },
-        
-//     },
-//     {
-//         path:"soom",
-//         component:Soom,
+//         path:"sofreestyleom",
+//         component:()=>import("@components/list/commend.vue"),
+
 //         meta:{
 //             title:"潮流",
 //             tabBarFlag:true,
@@ -55,16 +59,6 @@ export default {
 //         },
         
 //     },
-//     {
-//         path:"soom",
-//         component:Soom,
-//         meta:{
-//             title:"数码",
-//             tabBarFlag:true,
-//             requiredAuth:false
-//         },
-        
-//     }
-
 // ]
+// }
 }
