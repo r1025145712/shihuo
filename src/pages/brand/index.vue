@@ -3,7 +3,7 @@
         <div class="menuTop">
             <ul class="swiper-wrapper clearfix">
                 <router-link tag="li" v-for="(item,index) in tabs"  :key="index" 
-               :to="'/brand/whole/'+item.id"
+               :to="'/brand/'+item.path+'/'+item.id"
                 class="swiper-slide " data-id="0"  >
                     <a href="javascript:void(0);">
                         <svg class="icon" aria-hidden="true">
@@ -16,9 +16,7 @@
         </div>
         <!-- 主体 -->
         <div class="new">
-            <keep-alive>
                 <router-view></router-view>
-            </keep-alive>
         </div>
     </div>
 </template>
@@ -30,31 +28,31 @@ export default {
         return {
             tabs:[{
                 id:0,
-                // path:"whole",
+                path:"whole",
                 title:"全部",
                 img:"#icon-quanbu-copy"
             },
             {
                  id:1,
-                // path:"motion",
+                path:"motion",
                 title:"运动",
                 img:"#icon-yundong"
             },
             {
                  id:2,
-                // path:"clothes",
+                path:"clothes",
                 title:"男装",
                 img:"#icon-nanzhuangleimu"
             },
             {
                  id:3,
-                // path:"digital",
+                path:"digital",
                 title:"数码",
                 img:"#icon-shouji"
             },
             {
                  id:4,
-                // path:"other",
+                path:"other",
                 title:"其他",
                 img:"#icon-qita"
             }]

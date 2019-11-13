@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Index from  './shouye'
+import Index from './shouye'
 import Find from './find'
 import Preferential from "./preferential"
-import More from  './more'
-import Equip from  './equip'
+import More from './more'
+import Equip from './equip'
 import Register from './register'
 import Brand from './brand/'
 Vue.use(VueRouter)
@@ -13,10 +13,10 @@ Vue.use(VueRouter)
 
 const router = new VueRouter({
   mode: 'hash',
-  linkActiveClass:'active',
-  routes:[
+  linkActiveClass: 'active',
+  routes: [
     {
-      path:"/",
+      path: "/",
       redirect: "/shouye",
     },
     Index,
@@ -25,7 +25,17 @@ const router = new VueRouter({
     More,
     Equip,
     Register,
-    Brand
+    Brand,
+    {
+      path: "/column",
+      component: () => import("@pages/column"),
+      name: "column",
+      meta: {
+        title: "识货栏目",
+        tabBarFlag: false,
+        requiredAuth: false
+      },
+    }
   ]
 
 })

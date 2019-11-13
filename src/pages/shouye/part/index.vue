@@ -131,7 +131,7 @@ export default {
             "http://shihuo.hupucdn.com/appZone/201805/1414/c5f797407c24e87cb7648abc937e9955.jpg"
         },
          {
-          path: "/brand",
+          path: "/column",
           text: "跑步评测室",
           name: "最炫酷的跑步装备评测",
           img:

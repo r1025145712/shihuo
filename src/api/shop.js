@@ -12,3 +12,12 @@ export const brandApi = (r)=>http({
         page:1
     }
 })
+export const columnApi = ()=>http({
+    method:"get",
+    url:"/api/column/getList",
+    data:{
+        columnId:137,
+        pageSize:20,
+        page:1
+    }
+})

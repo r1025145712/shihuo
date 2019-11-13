@@ -4,7 +4,7 @@ export default {
     name:"brand",
     meta:{
         title:"识货发现",
-        tabBarFlag:true,
+        tabBarFlag:false,
         requiredAuth:false
     },
     children:[
@@ -17,46 +17,46 @@ export default {
                 component:()=>import("@components/whole"),
                 meta:{
                     title:"全部",
-                    tabBarFlag:true,
+                    tabBarFlag:false,
                     requiredAuth:true
                 }
             },
-            // {
-            //     path:"whole/:id",
-            //     component:()=>import("@components/whole"),
-            //     meta:{
-            //         title:"运动",
-            //         tabBarFlag:true,
-            //         requiredAuth:false
-            //     }
-            // },
-            // {
-            //     path:"whole/:id",
-            //     component:()=>import("@components/whole"),
-            //     meta:{
-            //         title:"男装",
-            //         tabBarFlag:true,
-            //         requiredAuth:false
-            //     }
-            // },
-            // {
-            //     path:"whole/:id",
-            //     component:()=>import("@components/whole"),
-            //     name:"digital",
-            //     meta:{
-            //         title:"数码",
-            //         tabBarFlag:true,
-            //         requiredAuth:false
-            //     }
-            // },
-            // {
-            //     path:"whole/:id",
-            //     component:()=>import("@components/whole"),
-            //     meta:{
-            //         title:"其他",
-            //         tabBarFlag:true,
-            //         requiredAuth:false
-            //     }
-            // },
+            {
+                path:"motion/:id",
+                component:()=>import("@components/whole"),
+                meta:{
+                    title:"运动",
+                    tabBarFlag:false,
+                    requiredAuth:false
+                }
+            },
+            {
+                path:"clothes/:id",
+                component:()=>import("@components/whole"),
+                meta:{
+                    title:"男装",
+                    tabBarFlag:false,
+                    requiredAuth:false
+                }
+            },
+            {
+                path:"digital/:id",
+                component:()=>import("@components/whole"),
+                name:"digital",
+                meta:{
+                    title:"数码",
+                    tabBarFlag:false,
+                    requiredAuth:false
+                }
+            },
+            {
+                path:"other/:id",
+                component:()=>import("@components/whole"),
+                meta:{
+                    title:"其他",
+                    tabBarFlag:false,
+                    requiredAuth:false
+                }
+            },
         ]
 }

@@ -41,22 +41,24 @@ export default {
     };
   },
   created(){
-      console.log(this.$route.params)
-     
-  },
-   beforeMount(){
-        console.log(this.id)
-   },
-  activated() {
-     let {id} = this.$route.params;
+        let {id} = this.$route.params;
         this.id = id;
-        console.log(this.id)
     this.hanleBrandList(this.id);
+  },
+  watch:{
+        "$route"(to,from){
+            // console.log(to)
+           let {id} = to.params;
+            this.id = id;
+            this.hanleBrandList(this.id);
+        }
   },
   methods: {
     async hanleBrandList(r) {
       let data = await brandApi(r);
       this.brandList = data.data.newDate;
+      document.title=this.$route.meta.title;
+      console.log(this.brandList[0].goods_info)
     }
   }
 };
