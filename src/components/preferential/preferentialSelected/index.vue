@@ -1,24 +1,24 @@
 <template>
   <div class="youhui-list" id="vue-js-list">
     <ul>
-      <li>
-        <a class="kanqiu_href2" href="http://m.shihuo.cn/youhui/564697.html">
+      <li  v-for="(item,index) in list" :key="index">
+        <a class="kanqiu_href2" :href=item.href>
           <div class="imgs">
             <span class="get_imgs">
               <img
-                src="http://shihuo.hupucdn.com/newsIndex11/201911/0715/bad32c1fab700189f35b185dc043448a.jpg?imageView2/0/w/600/h/600/interlace/1"
+                :src=item.img
                 class="lazy"
-                data-original="http://shihuo.hupucdn.com/newsIndex11/201911/0715/bad32c1fab700189f35b185dc043448a.jpg?imageView2/0/w/600/h/600/interlace/1"
+                :data-original=item.img
               />
             </span>
-            <span class="top">置顶</span>
+            <span class="top" v-if="item.tag != ''">{{item.tag}}</span>
           </div>
           <div class="details_box">
-            <h2>又到一年中最最最冷的时候！这份私藏的取暖秘籍拿好了~</h2>
-            <p class="subtitle">精选取暖神器大集合</p>
+            <h2>{{item.title}}</h2>
+            <p class="subtitle">{{item.subtitle}}</p>
             <div class="from">
-              <div class="shop">天猫国际</div>
-              <div class="date">2019-11-07</div>
+              <div class="shop">{{item.business}}</div>
+              <div class="date">{{item.date}}</div>
             </div>
           </div>
         </a>
@@ -28,10 +28,19 @@
 </template>
 
 <script>
+import {preferentialSelected} from "../../../api/shop";
+
 export default {
+  name:"preferentialSelected",
+  async created() {
+    let data=await preferentialSelected(30);
+    this.list=data.data
+  },
   components: {},
   data() {
-    return {};
+    return {
+      list:[],
+    };
   },
   methods: {}
 };
@@ -110,6 +119,17 @@ export default {
     justify-content: space-between;
 }
 
+/* .youhuiIndex .youhui-list ul>li>a .details_box h2 {
+    width: 100%;
+    font-size: .15rem;
+    color: #333;
+    font-weight: 400;
+    max-height: .35rem;
+    overflow: hidden;
+    word-break: break-all;
+    line-height: .175rem;
+} */
+
 .youhuiIndex .youhui-list ul>li>a .details_box h2 {
     width: 100%;
     font-size: .15rem;
@@ -119,7 +139,9 @@ export default {
     /* overflow: hidden; */
     word-break: break-all;
     line-height: .175rem;
+    font-family:not specified;
 }
+
 
 .youhuiIndex .youhui-list ul>li>a .details_box .subtitle {
     bottom: .2rem;

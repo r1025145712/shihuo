@@ -12,22 +12,13 @@
     <!-- 第六部分  第二部分 -->
     <div class="menu-list swiper-container-horizontal swiper-container-free-mode" id="menu-list">
       <ul class="swiper-wrapper clearfix" style="transform: translate3d(0px, 0px, 0px);">
-        <li data-id="999" class="swiper-slide on swiper-slide-active">
-          <a href="javascript:void(0);">精选</a>
-        </li>
-        <li data-id="1" class="swiper-slide swiper-slide-next">
-          <a href="javascript:void(0);">鞋类</a>
-        </li>
-        <li data-id="2" class="swiper-slide">
-          <a href="javascript:void(0);">服饰</a>
-        </li>
-        <li data-id="3" class="swiper-slide">
-          <a href="javascript:void(0);">数码</a>
-        </li>
-        <li data-id="4" class="swiper-slide">
-          <a href="javascript:void(0);">兴趣</a>
-        </li>
-        <li class="swiper-slide"></li>
+        <router-link tag="li"
+          :to=item.dizhi
+          v-for="(item,index) in arr" :key=index
+          :data-id=item.id class="swiper-slide"
+        >
+          <a href="#">{{item.name}}</a>
+        </router-link>
       </ul>
       <div class="tag-btn"></div>
     </div>
@@ -40,46 +31,44 @@
 </template>
 
 <script>
-import {preferentialSelected} from "../../../api/shop";
-import {preferentialFootwear} from "../../../api/shop";
-import {preferentialTrappings} from "../../../api/shop";
-import {preferentialDigital} from "../../../api/shop";
-import {preferentialInterest} from "../../../api/shop";
-
-
 
 
 
 export default {
   name:"Shop",
-  async created() {
-    let data=await preferentialSelected(30);
-    console.log(data)
-  },
 
-    async created() {
-    let data=await preferentialFootwear(30);
-    console.log(data)
-  },
-
-   async created() {
-    let data=await preferentialTrappings(30);
-    console.log(data)
-  },
-
-     async created() {
-    let data=await preferentialDigital(30);
-    console.log(data)
-  },
-
-    async created() {
-    let data=await preferentialInterest(30);
-    console.log(data)
-  },
 
   components: {},
   data() {
-    return {};
+    return {
+      arr:[
+        {
+          id:"999",
+          dizhi:"/preferential/preferentialSelected",
+          name:"精选"
+        },
+        {
+          id:"1",
+          dizhi:"/preferential/preferentialFootwear",
+          name:"鞋类"
+        },
+        {
+          id:"2",
+          dizhi:"/preferential/preferentialTrappings",
+          name:"服饰"
+        },
+        {
+          id:"3",
+          dizhi:"/preferential/preferentialDigital",
+          name:"数码"
+        },
+        {
+          id:"4",
+          dizhi:"/preferential/preferentialInterest",
+          name:"兴趣"
+        },
+      ]
+    };
   },
   methods: {}
 };
@@ -151,10 +140,10 @@ export default {
   position: relative;
 }
 
-.youhuiIndex .menu-list li.on a {
+.youhuiIndex .menu-list .router-link-exact-active a {
   color: #ff4338;
   position: relative;
-  border-bottom: 0.08rem solid #ff4338;
+  border-bottom: 0.04rem solid #ff4338;
 }
 
 .youhuiIndex .menu-list li a {
@@ -179,6 +168,14 @@ export default {
   z-index: 1;
 }
 
+
+
+.youhuiIndex .menu-list.fixedTop {
+    position: fixed;
+    z-index: 10;
+    left: 0;
+    top: 0;
+}
 /* 第六部分  第三部分 */
 
 

@@ -20,8 +20,6 @@ import Shop from "../preferential/preferential/shop"
 
 
 
-
-
 export default {
   name: "preferential",
   components: {

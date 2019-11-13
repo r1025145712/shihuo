@@ -1,5 +1,4 @@
 import http from "@utils/request";
-<<<<<<< HEAD
 /*
 * 
 * 接口:城市列表
@@ -22,21 +21,24 @@ export const columnApi = ()=>http({
         page:1
     }
 })
-=======
 
 
+
+
+// 优惠接口
+// 精选接口
 export const preferentialSelected=(publish_date)=>http({
     method:"get",
     url:"/api/youhui/list",
     data:{
         r:999,
-        page:2,
+        page:1,
         page_size:30,
         publish_date:publish_date
     }
 })
 
-
+// 鞋类接口
 export const preferentialFootwear=(publish_date)=>http({
     method:"get",
     url:"/api/youhui/list",
@@ -48,10 +50,7 @@ export const preferentialFootwear=(publish_date)=>http({
     }
 })
 
-
-
-
-
+// 服饰接口
 export const preferentialTrappings=(publish_date)=>http({
     method:"get",
     url:"/api/youhui/list",
@@ -63,10 +62,7 @@ export const preferentialTrappings=(publish_date)=>http({
     }
 })
 
-
-
-
-
+// 数码接口
 export const preferentialDigital=(publish_date)=>http({
     method:"get",
     url:"/api/youhui/list",
@@ -78,7 +74,7 @@ export const preferentialDigital=(publish_date)=>http({
     }
 })
 
-
+// 兴趣接口
 export const preferentialInterest=(publish_date)=>http({
     method:"get",
     url:"/api/youhui/list",
@@ -114,4 +110,3 @@ export const preferentialInterest=(publish_date)=>http({
 
 
 
->>>>>>> lk
