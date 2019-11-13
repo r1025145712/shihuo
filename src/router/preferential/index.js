@@ -1,3 +1,10 @@
+const preferentialSelected = () => import('@components/preferential/preferentialSelected')
+const preferentialFootwear = () => import('@components/preferential/preferentialFootwear')
+const preferentialTrappings = () => import('@components/preferential/preferentialTrappings')
+const preferentialDigital = () => import('@components/preferential/preferentialDigital')
+const preferentialInterest = () => import('@components/preferential/preferentialInterest')
+
+
 export default {
     path: "/preferential",
     component: () => import("@pages/preferential"),
@@ -13,8 +20,10 @@ export default {
         },
         //精选
         {
-            path:"/preferential/preferentialSelected",
-            component:_=>import("@components/preferential/preferentialSelected"),
+            path:"preferentialSelected",
+            component:preferentialSelected,
+            // component:_=>import("@components/preferential/preferentialSelected"),
+            // component:resovle =>require(["@components/preferential/preferentialSelected"],resovle),
             name:"preferentialSelected",
             meta: {
                 tabBarFlag: true,
@@ -23,8 +32,9 @@ export default {
         },
         //鞋类
         {
-            path:"/preferential/preferentialFootwear",
-            component:_=>import("@components/preferential/preferentialFootwear"),
+            path:"preferentialFootwear",
+            component:preferentialFootwear,
+            // component:_=>import("@components/preferential/preferentialFootwear"),
             name:"preferentialFootwear",
             meta: {
                 tabBarFlag: true,
@@ -33,8 +43,9 @@ export default {
         },
         //服饰
         {
-            path:"/preferential/preferentialTrappings",
-            component:_=>import("@components/preferential/preferentialTrappings"),
+            path:"preferentialTrappings",
+            component:preferentialTrappings,
+            // component:_=>import("@components/preferential/preferentialTrappings"),
             name:"preferentialTrappings",
             meta: {
                 tabBarFlag: true,
@@ -43,8 +54,9 @@ export default {
         },
         //数码
         {
-            path:"/preferential/preferentialDigital",
-            component:_=>import("@components/preferential/preferentialDigital"),
+            path:"preferentialDigital",
+            component:preferentialDigital,
+            // component:_=>import("@components/preferential/preferentialDigital"),
             name:"preferentialDigital",
             meta: {
                 tabBarFlag: true,
@@ -53,8 +65,9 @@ export default {
         },
         //兴趣
         {
-            path:"/preferential/preferentialInterest",
-            component:_=>import("@components/preferential/preferentialInterest"),
+            path:"preferentialInterest",
+            component:preferentialInterest,
+            // component:_=>import("@components/preferential/preferentialInterest"),
             name:"preferentialInterest",
             meta: {
                 tabBarFlag: true,
