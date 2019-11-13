@@ -93,6 +93,9 @@ export default {
 
 
 <style scoped>
+.main{
+    padding-top: .4rem;
+}
     .menu_block{
     width: 100%;
     font-size: .1rem;

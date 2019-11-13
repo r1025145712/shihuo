@@ -43,7 +43,7 @@ export default {
         flex-direction: column;
         justify-content: space-around;
         align-items: center;
-        position: absolute;
+        position: fixed;
         right: .1rem;
         top: .50rem;
     }

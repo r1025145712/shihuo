@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="top-bar" >
-      <div class="goback" @click = "handlerGoToBack">
+    <div class="top-bar">
+      <div class="goback" @click="handlerGoToBack">
         <img
           src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/common/widget/header/head_back_b142dc1.png"
           alt
@@ -14,7 +14,6 @@
           alt
         />
       </div>
-      
     </div>
     <User v-if="flag"></User>
   </div>
@@ -22,31 +21,42 @@
 
 
 <script>
-import User from "./user.vue"
+import User from "./user.vue";
 
 export default {
   name: "Topbar",
-  data(){
-      return {
-          flag:0
-      }
+
+  data() {
+    return {
+      flag: 0,
+     
+    };
   },
-  props:{
-      title:{
-          type:String,
-          default:"default"
-      }
+  props: {
+    title: {
+      type: String,
+      default: "default"
+    },
+    backPath: {
+      type: String,
+      
+    }
   },
-  components:{
-      User
+  components: {
+    User
   },
-  methods:{
-      handlerGoToBack(){
-          this.$router.back()
-      },
-      toggle(){
-          this.flag = !this.flag;
+  methods: {
+    handlerGoToBack() {
+      if(this.backPath){
+        this.$router.push(this.backPath);
+      }else{
+        this.$router.back();
       }
+      
+    },
+    toggle() {
+      this.flag = !this.flag;
+    }
   }
 };
 </script>
@@ -60,7 +70,7 @@ export default {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: relative;
+  position: fixed;
 }
 
 .main {
