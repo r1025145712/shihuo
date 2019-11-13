@@ -11,7 +11,7 @@ import Part from "./part"
 export default {
     name:"shouye",
      created(){
-         document.title = this.$route.meta.title
+        document.title = this.$route.meta.title
     }, 
     components:{
         Head,
