@@ -6,10 +6,18 @@ module.exports={
             "/api":{
                 target:"http://m.shihuo.cn",
                 changeOrigin:true,
+<<<<<<< HEAD
                 pathRewrite:{
                     "/api":"",
                 }
             }
+=======
+                pathRewrite: {
+                    '/api': ''  
+                  }
+            },
+            
+>>>>>>> lk
         }
     },
     configureWebpack:{
