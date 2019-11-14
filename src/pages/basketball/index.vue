@@ -3,7 +3,7 @@
     <Topbar title="篮球专区" :backPath="'/shouye'"></Topbar>
     <div class="main">
       <div class="menu_block">
-        <!-- <ul>
+        <ul>
           <li v-for="(item,index) in menu.listOne" :key="index">
             <p>
               <img :src="item.img" alt />
@@ -27,7 +27,9 @@
             <P>乔丹北斗科技芯</P>
           </div>
         </div>
-        <hr /> -->
+
+
+       
         <div class="list-view-top">
           <ul>
             <router-link
@@ -239,4 +241,5 @@ export default {
   font-size: 0.1rem;
   font-weight: bold;
 }
+
 </style>
