@@ -1,4 +1,5 @@
 <template>
+<RScroll ref="scroll">
   <div>
     <div class="list-block" v-for="(item,index) in brandList" :key="index">
       <h2>
@@ -29,6 +30,7 @@
       </ul>
     </div>
   </div>
+  </RScroll>
 </template>
 <script>
 import { brandApi } from "@api/shop";
@@ -60,6 +62,9 @@ export default {
       document.title=this.$route.meta.title;
       
     }
+  },
+  mounted(){
+    console.lof(this.$refs.scroll)
   }
 };
 </script>

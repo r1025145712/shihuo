@@ -35,49 +35,58 @@ export default {
     data() {
     return {
       // list: [],
-      type:'',
-      channel_type:""
+      // type:'',
+      // channel_type:""
     };
   },
   created(){
     this.$store.dispatch("shop/handleActionsGetGoods")
-    console.log(this.$route.params)
         let {type,channel_type} = this.$route.params;
-        this.type = type;
-        this.channel_type = channel_type;
-    this.hanleList(this.type,this.channel_type);
+        if(type=="t"){
+             this.$store.state.shop.type = '';
+          }else{
+              this.$store.state.shop.type = type;
+          }  
+          if(channel_type=="q"){
+             this.$store.state.shop.channel_type = '';
+          }else{
+              this.$store.state.shop.channel_type = channel_type;
+          }
+    this.hanleList(this.$store.state.shop.type, this.$store.state.shop.channel_type);
   },
   computed:{
     ...mapState({
       list:state=>state.shop.goodsList,
-      type:state=>state.shop.type,
-      channel_type:state=>state.shop.channel_type,
     })
   },
     watch:{
         "$route"(to,from){
-            console.log(to)
            let {type,channel_type} = to.params;
-            this.type = type;
-            this.channel_type = channel_type;
-            this.hanleList(this.type,this.channel_type);
+          if(typeof(type) == "undefined"){
+              this.$store.state.shop.type= this.$store.state.shop.type;
+          }else{
+             this.$store.state.shop.type = type;
+          }
+          if(typeof(channel_type) == "undefined"){
+              this.$store.state.shop.channel_type=this.$store.state.shop.channel_type;
+          }else{
+               this.$store.state.shop.channel_type= channel_type;
+          }
+            if(type=="t"){
+             this.$store.state.shop.type = '';
+          }  
+          if(channel_type=="q"){
+             this.$store.state.shop.channel_type = '';
+          }  
+            this.hanleList(this.$store.state.shop.type, this.$store.state.shop.channel_type);
         }
   },
   methods:{
     hanleList(type,channel_type){
-      console.log(type,channel_type)
-       this.$store.dispatch("shop/handleActionsGetGoods", type,channel_type);
+      let arr={type:type,channel_type:channel_type}
+       this.$store.dispatch("shop/handleActionsGetGoods",arr);
     }
   },
-
-  // methods: {
-  //   async hanleList(type) {
-  //     let data = await listApi(type);
-  //     this.list = data.data;
-  //     document.title=this.$route.meta.title;
-      
-  //   }
-  // }
 };
 </script>
 <style >

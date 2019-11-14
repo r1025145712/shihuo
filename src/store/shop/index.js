@@ -2,26 +2,42 @@ import {listApi} from "@api/shop.js";
 
 let state = {
     goodsList: [],
-    type:"",
-    channel_type:"",
+    active:(sessionStorage.getItem("index"))||"0",
+    active1:(sessionStorage.getItem("index1"))||"0",
+    type:(sessionStorage.getItem("nm")) ||"",
+    channel_type:(sessionStorage.getItem("tx")) ||"",
 }
 
 let actions = {
-   async handleActionsGetGoods({commit},type,channel_type){
-    let data = await listApi(type,channel_type);
-    console.log(type)
-    commit("handleUpdateShop",data.data,type,channel_type)
+   async handleActionsGetGoods({commit},arr){
+    // console.log(arr)
+    let data = await listApi(arr.type,arr.channel_type);
+    commit("handleUpdateShop",data.data)
+  },
+  handleIndex({commit},index){
+    commit("handleMutations",index)
+  },
+  handleIndex1({commit},index){
+    commit("handleMutations1",index)
   }
 }
 
 let mutations = {
-    handleUpdateShop(state,params,type,channel_type){
-        state.type = type;
-        state.channel_type = channel_type;
+    handleUpdateShop(state,params){
         state.goodsList = params;
-        console.log(state.goodsList)
-        // sessionStorage.setItem("nm",params.nm);
-        // sessionStorage.setItem("cityId",params.id);
+        sessionStorage.setItem("nm",state.type);
+        sessionStorage.setItem("tx",state.channel_type);
+        // console.log((sessionStorage.getItem("nm")),(sessionStorage.getItem("tx")))
+    },
+    handleMutations(state,params){
+        state.active=params;
+        sessionStorage.setItem("index",params);
+        // console.log(state.active)
+    },
+    handleMutations1(state,params){
+        state.active1=params;
+        sessionStorage.setItem("index1",params);
+        // console.log(state.active1)
     }
 }
 

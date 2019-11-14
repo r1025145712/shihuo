@@ -1,9 +1,13 @@
 <template>
-  <div>
+  <div class="box">
+        
        <div class="mainBox">
+         
         <div class="top_bar">
-            <div class="goback"><img
-                    src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/common/widget/header/head_back_b142dc1.png">
+            <div class="goback">
+                <a href="#/shouye">
+                <img src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/common/widget/header/head_back_b142dc1.png">
+                </a>
             </div>
             <span class="d-title">识货-栏目</span>
             <div class="ico_list">
@@ -27,6 +31,7 @@
                 </div>
             </div>
         </div>
+            <RScroll>
         <div class="pagecontent">
             <div class="banner">
                 <img get="true"
@@ -42,7 +47,7 @@
                     <a href="" class="link-a">
                         <div class="imgs">
                             <img get="true" class="lazy" :data-src="item.data.img_long"
-                                :src='item.data.img_path+"?imageslim|imageView2/1/w/400/h/400"'>
+                                :src="item.data.img_path | toImg('400.400')">
                         </div>
                         <div class="details_box">
                             <h2>
@@ -64,7 +69,9 @@
                 
             </ul>
         </div>
+          </RScroll>
     </div>
+   
   </div>
 </template>
 <script>
@@ -84,16 +91,19 @@ export default {
     async hanleColumnList() {
       let data = await columnApi();
       this.columnList = data.data;
-       console.log(this.columnList)
+    //    console.log(this.columnList)
     }
   }
 };
 </script>
-<style scoped>
+<style >
+.box{
+     display: flex;
+     height: 100%;
+}
 .mainBox{
     display: flex;
     flex-direction:column ;
-    height: 100%;
 }
 .top_bar {
     background-color: #f7f7f7;
@@ -181,7 +191,7 @@ export default {
 /* 内容 */
 .pagecontent{
     padding-top:.48rem ;
-    flex: 1;
+    overflow-y:auto; 
     display: flex;
     flex-direction: column;
     background-color: #FFF;
@@ -297,5 +307,8 @@ export default {
     height: 100%;
     -webkit-background-size: contain;
     background-size: contain;
+}
+.bscroll{
+    height: 100%;
 }
 </style>
