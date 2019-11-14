@@ -51,6 +51,7 @@ export default {
     background: #fff;
     padding-top: .064rem;
     padding-left: .064rem;
+    padding-bottom: 0.36rem;
     width: 100%;
     /* height: auto; */
     min-height: 10rem;
