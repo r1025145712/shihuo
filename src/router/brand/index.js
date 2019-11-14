@@ -17,7 +17,7 @@ export default {
                 component:()=>import("@components/whole"),
                 meta:{
                     title:"全部",
-                    tabBarFlag:false,
+                    tabBarFlag:true,
                     requiredAuth:true
                 }
             },

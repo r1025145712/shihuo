@@ -16,7 +16,7 @@
       </ul>
     </div>
     <section class="hot clearfix">
-      <a class="block" href>
+      <a class="block" :href="path">
         <h2>今日优惠</h2>
         <p class="desc">EQT 5折好价</p>
         <p class="imgs">
@@ -77,6 +77,7 @@ export default {
   },
   data() {
     return {
+      path:"#preferential",
       tabs: [
         {
           sign: "zone0",
@@ -170,7 +171,7 @@ export default {
 };
 </script>
 
-<style  scoped>
+<style  >
 .page_home {
   display: flex;
   flex-direction: column;
