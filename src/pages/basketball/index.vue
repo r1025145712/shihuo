@@ -3,7 +3,7 @@
     <Topbar title="篮球专区" :backPath="'/shouye'"></Topbar>
     <div class="main">
       <div class="menu_block">
-        <ul>
+        <!-- <ul>
           <li v-for="(item,index) in menu.listOne" :key="index">
             <p>
               <img :src="item.img" alt />
@@ -27,19 +27,23 @@
             <P>乔丹北斗科技芯</P>
           </div>
         </div>
-        <hr />
+        <hr /> -->
         <div class="list-view-top">
           <ul>
-            <router-link :to="item.path" tag="li" v-for="(item,index) in list " :key="index">{{item.title}}</router-link>
-            
+            <router-link
+              :to="item.path"
+              tag="li"
+              v-for="(item,index) in list "
+              :key="index"
+            >{{item.title}}</router-link>
           </ul>
         </div>
 
-      <router-view></router-view>
-      
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </div>
-
-    </div>      
+    </div>
   </div>
 </template>
 
@@ -49,20 +53,20 @@ export default {
   // created(){
   //   if(/^\/basketball/.test(this.$route.path)){
   //     this.back = "/shouye";
-     
+
   //   }
-   
+
   // },
   // updated(){
   //   if(/^\/basketball/.test(this.$route.path)){
   //     this.back = "/shouye";
   //   }
-    
+
   // },
- 
+
   data() {
     return {
-     back:"",
+      back: "",
       menu: {
         listOne: [
           {
@@ -110,23 +114,22 @@ export default {
         ]
       },
       list: [
-          {
-              title:"全部",
-              path:"/basketball/all"
-          },
-          {
-              title:"单品推荐",
-              path:"/basketball/single"
-          },
-          {
-              title:"达人清单",
-              path:"/basketball/daman"
-          },
-          {
-              title:"用户晒物",
-              path:"/basketball/drying"
-          }
-            
+        {
+          title: "全部",
+          path: "/basketball/all"
+        },
+        {
+          title: "单品推荐",
+          path: "/basketball/single"
+        },
+        {
+          title: "达人清单",
+          path: "/basketball/daman"
+        },
+        {
+          title: "用户晒物",
+          path: "/basketball/drying"
+        }
       ]
     };
   }

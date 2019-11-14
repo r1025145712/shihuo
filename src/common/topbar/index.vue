@@ -71,6 +71,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  z-index: 999;
 }
 
 .main {

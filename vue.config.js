@@ -7,9 +7,10 @@ module.exports={
                 target:"http://m.shihuo.cn",
                 changeOrigin:true,
                 pathRewrite:{
-                    "/api":"",
+                    "^/api":"",
                 }
-            }
+            },
+
         }
     },
     configureWebpack:{
