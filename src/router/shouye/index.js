@@ -10,59 +10,59 @@ export default {
     children:[
         {
             path:"/shouye",
-            redirect:"/shouye/commend/"
+            redirect:"/shouye/quanbu/q"
         }
         ,{
-        path:"commend",
+        path:"commend/:type/",
         component:()=>import("@components/list"),
         meta:{
             title:"推荐",
             tabBarFlag:true,
             requiredAuth:false
-        }
-    },
-    {
-        path:"basketball/:type",
-        component:()=>import("@components/list"),
-        meta:{
-            title:"篮球",
-            tabBarFlag:true,
-            requiredAuth:false
         },
+    },
+    // {
+    //     path:"basketball/:type",
+    //     component:()=>import("@components/list"),
+    //     meta:{
+    //         title:"篮球",
+    //         tabBarFlag:true,
+    //         requiredAuth:false
+    //     },
         
-    },{
-        path:"running/:type",
-        component:()=>import("@components/list"),
+    // },{
+    //     path:"running/:type",
+    //     component:()=>import("@components/list"),
 
-        meta:{
-            title:"跑步/:type",
-            tabBarFlag:true,
-            requiredAuth:false
-        },
+    //     meta:{
+    //         title:"跑步/:type",
+    //         tabBarFlag:true,
+    //         requiredAuth:false
+    //     },
         
-    },
-    {
-        path:"fitness/:type",
-        component:()=>import("@components/list"),
+    // },
+    // {
+    //     path:"fitness/:type",
+    //     component:()=>import("@components/list"),
  
-        meta:{
-            title:"健身",
-            tabBarFlag:true,
-            requiredAuth:false
-        },
+    //     meta:{
+    //         title:"健身",
+    //         tabBarFlag:true,
+    //         requiredAuth:false
+    //     },
         
-    },
+    // },
+    // {
+    //     path:"freestyle/:type",
+    //     component:()=>import("@components/list"),
+    //     meta:{
+    //         title:"潮流",
+    //         tabBarFlag:true,
+    //         requiredAuth:false
+    //     },
+    // },
     {
-        path:"freestyle/:type",
-        component:()=>import("@components/list"),
-        meta:{
-            title:"潮流",
-            tabBarFlag:true,
-            requiredAuth:false
-        },
-    },
-    {
-        path:"quanbu",
+        path:"quanbu/:channel_type",
         component:()=>import("@components/list"),
         meta:{
             title:"全部",
@@ -71,35 +71,35 @@ export default {
         },
         
     },
-    {
-        path:"danpin/:channel_type",
-        component:()=>import("@components/list"),
-        meta:{
-            title:"单品",
-            tabBarFlag:true,
-            requiredAuth:false
-        },
+    // {
+    //     path:"danpin/:channel_type",
+    //     component:()=>import("@components/list"),
+    //     meta:{
+    //         title:"单品",
+    //         tabBarFlag:true,
+    //         requiredAuth:false
+    //     },
         
-    },
-    {
-        path:"yuanchuang/:channel_type",
-        component:()=>import("@components/list"),
-        meta:{
-            title:"原创",
-            tabBarFlag:true,
-            requiredAuth:false
-        },
+    // },
+    // {
+    //     path:"yuanchuang/:channel_type",
+    //     component:()=>import("@components/list"),
+    //     meta:{
+    //         title:"原创",
+    //         tabBarFlag:true,
+    //         requiredAuth:false
+    //     },
         
-    },
-    {
-        path:"user/:channel_type",
-        component:()=>import("@components/list"),
-        meta:{
-            title:"用户",
-            tabBarFlag:true,
-            requiredAuth:false
-        },
+    // },
+    // {
+    //     path:"user/:channel_type",
+    //     component:()=>import("@components/list"),
+    //     meta:{
+    //         title:"用户",
+    //         tabBarFlag:true,
+    //         requiredAuth:false
+    //     },
         
-    },
+    // },
 ]
 }

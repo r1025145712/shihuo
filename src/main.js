@@ -2,8 +2,12 @@ import Vue from 'vue'
 import App from './App.vue'
 import router from './router/index'
 import store from './store'
+import VueTouch from 'vue-touch'
+import "@common/filter"
+import "@common/components"
 import "@common/index.js"
 
+<<<<<<< HEAD
 Vue.config.productionTip = false;
 
 
@@ -39,6 +43,10 @@ Vue.directive('back-top',{
 
 
 
+=======
+Vue.config.productionTip = false
+Vue.use(VueTouch,{name:"v-touch"});
+>>>>>>> f7abdedc662e7bb71403b2d2a65dfdf6213486e5
 
 new Vue({
   router,

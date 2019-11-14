@@ -77,7 +77,7 @@ export default {
   },
   data() {
     return {
-      path:"#preferential",
+      path:"#/preferential",
       tabs: [
         {
           sign: "zone0",
