@@ -20,7 +20,7 @@
             />
             <input type="reset" class="sh_searchClear" title="重置搜索词" style="display: none;" />
           </div>
-          <a href="javascript:void(0);" class="me">
+          <a :href="path" class="me">
             <img
               src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/homefis/widget/header/me_0442d1d.png"
               alt
@@ -29,33 +29,73 @@
         </div>
       </form>
     </div>
-    <div class="page_banner">
-      <div class="hd">
-        <ul>
-          <li class>1</li>
-          <li class>2</li>
-          <li class="on">3</li>
-          <li class>4</li>
-          <li class>5</li>
-        </ul>
+
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide">
+          <a href>
+            <img src="@img/swiper1.jpg" alt />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href>
+            <img src="@img/swiper2.png" alt />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href>
+            <img src="@img/swiper3.png" alt />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href>
+            <img src="@img/swiper4.png" alt />
+          </a>
+        </div>
+        <div class="swiper-slide">
+          <a href>
+            <img src="@img/swiper5.jpg" alt />
+          </a>
+        </div>
       </div>
-      <img
-        src="http://shihuo.hupucdn.com/appHome/201901/0810/e3e9e3e19c8ac46b699f554b3aca7538.jpg?imageView2/2/w/750/h/380/interlace/1"
-        alt
-      />
+      <!-- 如果需要分页器 -->
+      <div class="swiper-pagination"></div>
     </div>
   </div>
 </template>
 
 <script>
+import Swiper from "swiper"
 export default {
-  name: "index-head"
+  name: "index-head",
+  data(){
+    return{
+         path: "#/more"
+    }
+  },
+  mounted(){
+    var swiper = new Swiper('.swiper-container',{
+       direction: 'horizontal', // 垂直切换选项
+        loop: true, // 循环模式选项
+        autoplay:true,
+
+        // 如果需要分页器
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    })
+     //如果你在swiper初始化后才决定使用clickable，可以这样设置
+    swiper.params.pagination.clickable = true;
+    //此外还需要重新初始化pagination
+    swiper.pagination.destroy()
+    swiper.pagination.init()
+    swiper.pagination.bullets.eq(0).addClass('swiper-pagination-bullet-active');  
+  }
 };
 </script>
 
-<style  scoped>
-.headBox{
-  
+<style >
+.headBox {
 }
 .search_bar {
   width: 100%;
@@ -119,38 +159,22 @@ export default {
   height: 0.25rem;
 }
 
-
 /* 轮播图 */
-.page_banner{
-    width: 100%;
-    height: 1.6rem;
-    position: relative;
+.swiper-container {
+  width: 100%;
+  height: 1.6rem;
 }
-.page_banner img{
-    width: 100%;
-    height: 100%;
+.swiper-container img {
+  width: 100%;
+  height: 100%;
 }
-.page_banner .hd {
-    position: absolute;
-    height: .085rem;
-    right: .08rem;
-    bottom: .08rem;
-    z-index: 1;
+.swiper-container-horizontal>.swiper-pagination-bullets {
+  position: absolute;
+  /* width: 1.2rem; */
+  right:.0 !important;
+  bottom: .05rem;
 }
-.page_banner .hd ul li {
-    background: rgba(255,255,255,.4);
-    display: block;
-    width: .08rem;
-    height: .08rem;
-    border-radius: .08rem;
-    text-indent: -9999px;
-    font-size: 0;
-    overflow: hidden;
-    margin: 0 .025rem;
-    float: left;
+.swiper-pagination-bullet-active{
+  background: #fff;
 }
-.page_banner .hd ul .on{
-    background: #fff ;
-}
-
 </style>
