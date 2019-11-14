@@ -7,6 +7,8 @@ import More from './more'
 import Equip from './equip'
 import Register from './register'
 import Brand from './brand/'
+import { all } from 'any-promise'
+import Basketball from "./equip/basketball.js"
 Vue.use(VueRouter)
 
 
@@ -26,6 +28,13 @@ const router = new VueRouter({
     Equip,
     Register,
     Brand,
+    Basketball,
+    {
+      name:"Running",
+      path:"/running",
+      component:() =>import ("@pages/running")
+
+    },
     {
       path: "/column",
       component: () => import("@pages/column"),

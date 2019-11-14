@@ -9,7 +9,8 @@ module.exports={
                 pathRewrite:{
                     "^/api":"",
                 }
-            }
+            },
+
         }
     },
     configureWebpack:{
