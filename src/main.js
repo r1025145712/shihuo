@@ -5,6 +5,8 @@ import store from './store'
 import VueTouch from 'vue-touch'
 import "@common/filter"
 import "@common/components"
+import "@common/index.js"
+
 Vue.config.productionTip = false
 Vue.use(VueTouch,{name:"v-touch"});
 

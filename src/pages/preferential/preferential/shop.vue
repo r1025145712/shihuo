@@ -11,70 +11,123 @@
     </div>
     <!-- 第六部分  第二部分 -->
     <div class="menu-list swiper-container-horizontal swiper-container-free-mode" id="menu-list">
-      <ul class="swiper-wrapper clearfix" style="transform: translate3d(0px, 0px, 0px);">
-        <router-link tag="li"
-          :to=item.dizhi
-          v-for="(item,index) in arr" :key=index
-          :data-id=item.id class="swiper-slide"
-        >
-          <a href="#">{{item.name}}</a>
-        </router-link>
-      </ul>
-      <div class="tag-btn"></div>
+      <div :class="searchBarFixed == true ? 'isFixed' :''">
+        <ul class="swiper-wrapper clearfix">
+          <router-link
+            tag="li"
+            :to="item.dizhi"
+            v-for="(item,index) in arr"
+            :key="index"
+            :data-id="item.id"
+            class="swiper-slide"
+          >
+            <a href="#">{{item.name}}</a>
+          </router-link>
+        </ul>
+
+        <div class="tag-btn"></div>
+      </div>
     </div>
 
-
-    <router-view></router-view>
-    <!-- 第六部分  第三部分 -->
-    
+    <keep-alive>
+      <router-view></router-view>
+    </keep-alive>
   </div>
 </template>
 
 <script>
-
-
-
 export default {
-  name:"Shop",
-
+  name: "Shop",
 
   components: {},
   data() {
     return {
-      arr:[
+      searchBarFixed: false,
+      arr: [
         {
-          id:"999",
-          dizhi:"/preferential/preferentialSelected",
-          name:"精选"
+          id: "999",
+          dizhi: "/preferential/preferentialSelected",
+          name: "精选"
         },
         {
-          id:"1",
-          dizhi:"/preferential/preferentialFootwear",
-          name:"鞋类"
+          id: "1",
+          dizhi: "/preferential/preferentialFootwear",
+          name: "鞋类"
         },
         {
-          id:"2",
-          dizhi:"/preferential/preferentialTrappings",
-          name:"服饰"
+          id: "2",
+          dizhi: "/preferential/preferentialTrappings",
+          name: "服饰"
         },
         {
-          id:"3",
-          dizhi:"/preferential/preferentialDigital",
-          name:"数码"
+          id: "3",
+          dizhi: "/preferential/preferentialDigital",
+          name: "数码"
         },
         {
-          id:"4",
-          dizhi:"/preferential/preferentialInterest",
-          name:"兴趣"
-        },
+          id: "4",
+          dizhi: "/preferential/preferentialInterest",
+          name: "兴趣"
+        }
       ]
     };
   },
-  methods: {}
+
+  mounted() {
+    window.addEventListener("scroll", this.handleScroll);
+    window.ontouchmove = this.handleScroll;
+  },
+  methods: {
+    handleScroll() {
+      var scrollTop =
+        window.pageYOffset ||
+        document.documentElement.scrollTop ||
+        document.body.scrollTop; //网页被卷起来的高度
+      var offsetTop = document.querySelector("#menu-list").offsetTop; //距离顶部的高度
+      console.log(scrollTop);
+      console.log(offsetTop);
+      if (scrollTop > offsetTop) {
+        this.searchBarFixed = true;
+      } else {
+        this.searchBarFixed = false;
+      }
+      // console.log(this.searchBarFixed)
+    }
+  },
+  destroyed() {
+    window.removeEventListener("scroll", this.handleScroll);
+  }
 };
 </script>
 
+<style lang="scss">
+// .menu-list
+   .isFixed {
+     width: 100%;
+    position: fixed;
+    background-color: red;
+    top: 0;
+    z-index: 999;
+    border-top: none;
+  }
+  .isFixed .swiper-wrapper {
+  margin: 0 auto;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+  background: #333
+}
+// 
+</style>
+
 <style lang="scss" scoped>
+
+ 
+  
+
+
 .youhuiIndex .bg-color-all {
   background-color: #fff;
   width: 100%;
@@ -168,15 +221,11 @@ export default {
   z-index: 1;
 }
 
-
-
 .youhuiIndex .menu-list.fixedTop {
-    position: fixed;
-    z-index: 10;
-    left: 0;
-    top: 0;
+  position: fixed;
+  z-index: 10;
+  left: 0;
+  top: 0;
 }
 /* 第六部分  第三部分 */
-
-
 </style>

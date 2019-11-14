@@ -52,7 +52,8 @@ export default {
     padding-top: .064rem;
     padding-left: .064rem;
     width: 100%;
-    height: auto;
+    /* height: auto; */
+    min-height: 10rem;
     overflow: hidden;
 }
 
