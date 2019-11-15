@@ -1,6 +1,6 @@
 <template>
 <div>
-  <div style="height:300px"></div>
+  <div style="height:300px; background:red"></div>
 
   <div class="searchBar" id="searchBar">
     <ul  :class="searchBarFixed == true ? 'isFixed' :''">
@@ -10,11 +10,13 @@
       <li>更多</li>
     </ul>
   </div>
-  <div style="height:1000px"></div>
+  <div style="height:1000px; background:yellow"></div>
 </div>
 </template>
 
 <script>
+
+
 export default {
     data () {
       return {
