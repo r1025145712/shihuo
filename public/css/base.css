@@ -10,7 +10,10 @@ body { color:#333;height: 100%; font:16px "SimSun","宋体","Arial Narrow",HELVE
 	margin:0;
 	padding:0;
 }
-
+#app{
+	display: flex;
+	flex-direction: column;
+}
 ul,ol,dl{
 	list-style:none;
 }
