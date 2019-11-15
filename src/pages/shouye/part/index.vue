@@ -2,7 +2,7 @@
   <div class="page_home">
     <div class="pic_banner">
       <ul class="zone">
-        <li :class="item.sign" v-for="(item,index) in tabs" :key="index">
+        <router-link :to="item.path" tag="li" :class="item.sign" v-for="(item,index) in tabs" :key="index">
           <a href style="display:block;overflow:hidden;">
             <div class="tit">
               <h2>{{item.name}}</h2>
@@ -12,7 +12,7 @@
               <img :src="item.img" alt />
             </div>
           </a>
-        </li>
+        </router-link> 
       </ul>
     </div>
     <section class="hot clearfix">
@@ -80,6 +80,7 @@ export default {
       path:"#/preferential",
       tabs: [
         {
+          path:"/basketball",
           sign: "zone0",
           text: "纯白系列秒杀",
           name: "篮球",
@@ -87,6 +88,7 @@ export default {
             "http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
         },
         {
+          path:"/basketball",
           sign: "zone1",
           text: "女王节秒杀",
           name: "跑步",
@@ -94,6 +96,7 @@ export default {
             "http://shihuo.hupucdn.com/def/20180801/a580ec1affbbf4a344974bc92969c7671533133549.jpg?imageView2/0/w/160/h/160/interlace/1"
         },
         {
+          path:"/basketball",
           sign: "zone2",
           text: "步瑞特装备秒杀",
           name: "健身",
@@ -101,6 +104,7 @@ export default {
             "http://shihuo.hupucdn.com/def/20170915/0446a5d97bf800d5322341aab554035d1505460763.jpg?imageView2/0/w/160/h/160/interlace/1"
         },
         {
+          path:"/basketball",
           sign: "zone3",
           text: "其实是在吹总裁",
           name: "足球",
@@ -108,6 +112,7 @@ export default {
             "http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
         },
         {
+          path:"/basketball",
           sign: "zone4",
           text: "78元短袖秒杀",
           name: "潮流",
@@ -115,6 +120,7 @@ export default {
             "http://shihuoproxy.hupucdn.com/aHR0cDovL2ltZy5hbGljZG4uY29tL2ltZ2V4dHJhL2kzL1RCMVVoVUtSVlhYWFhhTVhwWFhYWFhYWFhYWF8hITItaXRlbV9waWMucG5n?imageView2/0/w/160/h/160/interlace/1"
         },
         {
+          path:"/basketball",
           sign: "zone5",
           text: "家用电吹风",
           name: "数码",
