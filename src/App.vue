@@ -20,10 +20,7 @@ export default {
   },
   components:{
     tabBar,
-<<<<<<< HEAD
     BackTop
-=======
->>>>>>> f7abdedc662e7bb71403b2d2a65dfdf6213486e5
   }
 }
 </script>
