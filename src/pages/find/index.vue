@@ -1,23 +1,54 @@
 <template>
-<div>
-  <div style="height:300px; background:red"></div>
-
-  <div class="searchBar" id="searchBar">
-    <ul  :class="searchBarFixed == true ? 'isFixed' :''">
-      <li>区域</li>
-      <li>价格</li>
-      <li>房型</li>
-      <li>更多</li>
-    </ul>
-  </div>
-  <div style="height:1000px; background:yellow"></div>
-</div>
+    <div class="mainBox  indexpage">
+        <section class="page-content">
+          <Findtop/>
+          <Findsearch/>
+          <Findhot/>        
+          <Findfind/>
+        </section>
+    </div>
 </template>
 
-<script>
 
+<script>
+import Findtop from "../find/findtop";
+import Findsearch from "../find/findsearch";
+import Findhot from "../find/findhot";
+import Findfind from "../find/findfind";
 
 export default {
+  name:"find",
+  components:{
+    Findtop,
+    Findhot,
+    Findsearch,
+    Findfind,
+  }
+}
+</script>
+
+<style lang="scss" scoped>
+
+
+.flexibile-model .mainBox.indexpage {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    padding-bottom: .4rem;
+}
+
+.page-content {
+    -webkit-font-smoothing: antialiased;
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+</style>
+
+<!-- 吸顶
     data () {
       return {
         searchBarFixed:false
@@ -44,11 +75,24 @@ export default {
   destroyed () {
     window.removeEventListener('scroll', this.handleScroll)
   },
-}
-</script>
+-->
 
-<style lang="scss">
+<!-- 
+  // 吸顶
+  <div>
+  <div style="height:300px; background:red"></div>
 
+  <div class="searchBar" id="searchBar">
+    <ul  :class="searchBarFixed == true ? 'isFixed' :''">
+      <li>区域</li>
+      <li>价格</li>
+      <li>房型</li>
+      <li>更多</li>
+    </ul>
+  </div>
+  <div style="height:1000px; background:yellow"></div>
+</div> 
+style
 .searchBar{
   .isFixed{
     position:fixed;
@@ -75,5 +119,4 @@ export default {
     border-bottom: 1px solid #ddd;
     border-top: 1px solid #ddd;
   }
-}
-</style>
+}-->

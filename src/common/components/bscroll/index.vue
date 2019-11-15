@@ -17,6 +17,20 @@ export default {
                 callback();
             });
         },
+
+        //上拉加载更多
+
+        handlepullingUp(callback){
+            this.scroll.on('pullingUp'),()=>{
+                callback();
+            }
+        }
+
+
+
+
+
+
     }
 }
 </script>
