@@ -88,7 +88,7 @@ export default {
             "http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
         },
         {
-          path:"/basketball",
+          path:"/running",
           sign: "zone1",
           text: "女王节秒杀",
           name: "跑步",

@@ -64,7 +64,7 @@ export default {
     }
   },
   mounted(){
-    console.lof(this.$refs.scroll)
+    console.log(this.$refs.scroll)
   }
 };
 </script>
