@@ -4,9 +4,13 @@
             <div class="userface">
                 <img src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/user/head_02977e3.png" alt="">
             </div>
-            <div class="login">
+            <div class="login" v-if="box==true">
                 <router-link to="/register" tag="a">登录</router-link>
                 <a href="">注册</a>
+                <p class="jb">金币 0</p>
+            </div>
+            <div class="login" v-else-if="box==false">
+                <a href="">{{name}}</a>
                 <p class="jb">金币 0</p>
             </div>
         </div>
@@ -14,7 +18,7 @@
         <div class="menu_list">
             <div class="tit"><span>我的识货</span></div>
             <ul>
-                <li><a href="">
+                <li><a href="register">
                         <img src="http://sh1.hoopchina.com.cn/images/trade/app/personal/collect_content.png" alt="">
                         <p>我的收藏</p>
                     </a></li>
@@ -50,7 +54,28 @@ export default {
      name:"more",
         created(){
          document.title = this.$route.meta.title
+         let data= JSON.parse(sessionStorage.getItem("user"))
+         this.hanleIf(data)
     }, 
+    data(){
+        return{
+            box:true,
+            name:""
+        }
+    },
+    methods:{
+        hanleIf(data){
+            if(data.name==''){
+                  this.box=true;
+              
+            }else{
+                 this.box=false
+                this.name=data.name
+            }
+            console.log(this.box)
+        }
+    }
+    
 }
 </script>
 

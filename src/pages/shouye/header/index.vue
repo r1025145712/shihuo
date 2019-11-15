@@ -96,6 +96,7 @@ export default {
 
 <style >
 .headBox {
+  position: relative;
 }
 .search_bar {
   width: 100%;

@@ -1,6 +1,7 @@
 <template>
-    <div>
+    <div class="page1">
        <Head/>
+      
        <Part/>
     </div>
 </template>
@@ -15,11 +16,14 @@ export default {
     }, 
     components:{
         Head,
-        Part
+        Part,
     }
 }
 </script>
 
-<style lang="stylus" scoped>
-
+<style  >
+.page1{
+   height: 100%;
+     overflow-y: auto;
+}
 </style>

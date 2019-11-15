@@ -10,7 +10,7 @@
                 </a>
             </div>
             <span class="d-title">识货-栏目</span>
-            <div class="ico_list" @click="hanleColumnCb()">
+            <div class="ico_list" @tap="hanleColumnCb()">
                 <img
                     src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/common/widget/header/head_list_4a4f511.png">
             </div>
@@ -37,10 +37,10 @@
                 <img get="true"
                     data-original="http://shihuo.hupucdn.com/column/201901/2911/b1a7a07263f622df41f93a2b84c0ad1a.png"
                     class="lazy"
-                    src="http://shihuo.hupucdn.com/column/201901/2911/b1a7a07263f622df41f93a2b84c0ad1a.png">
+                    src="http://shihuo.hupucdn.com/column/201805/0810/ea0bbbaf12df664c77392120545ed80f.jpg">
             </div>
             <h3 class="title">
-                <span>跑步评测室</span>
+                <span>热门资讯</span>
             </h3>
             <ul class="news-list" v-for="(item,index) in columnList" :key="index">
                 <li>
@@ -86,9 +86,7 @@ export default {
   },
   created(){
    document.title=this.$route.meta.title;
-    
-     let {columnId}=this.$route.params;
-    //  console.log(columnId)
+      let {columnId}=this.$route.params;
     this.hanleColumnList(columnId);
   },
   methods: {

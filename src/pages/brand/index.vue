@@ -23,7 +23,9 @@
 
     <div class="new">
      
-        <keep-alive><router-view></router-view> </keep-alive>
+        <!-- <keep-alive> -->
+          <router-view></router-view>
+        <!-- </keep-alive> -->
       
     </div>
   </div>
@@ -67,7 +69,7 @@ export default {
         }
       ]
     };
-  }
+  },
 };
 </script>
 <style scoped>
@@ -130,10 +132,12 @@ export default {
 .new {
   display: flex;
   margin-top: 0.54rem;
+  margin-bottom: .34rem;
+  height: 100%;
   overflow-y: auto;
   flex-direction: column;
 }
-.bscroll{
+/* .bscroll{
     height: 100%;
-}
+} */
 </style>

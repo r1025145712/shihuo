@@ -9,7 +9,7 @@ export default {
     },
     children:[
             {
-                path:"/brand",
+                path:"/brand/undefined",
                 redirect:"/brand/whole/0"
             },
             {
@@ -26,7 +26,7 @@ export default {
                 component:()=>import("@components/whole"),
                 meta:{
                     title:"运动",
-                    tabBarFlag:false,
+                    tabBarFlag:true,
                     requiredAuth:false
                 }
             },
@@ -35,7 +35,7 @@ export default {
                 component:()=>import("@components/whole"),
                 meta:{
                     title:"男装",
-                    tabBarFlag:false,
+                    tabBarFlag:true,
                     requiredAuth:false
                 }
             },
@@ -45,7 +45,7 @@ export default {
                 name:"digital",
                 meta:{
                     title:"数码",
-                    tabBarFlag:false,
+                    tabBarFlag:true,
                     requiredAuth:false
                 }
             },
@@ -54,7 +54,7 @@ export default {
                 component:()=>import("@components/whole"),
                 meta:{
                     title:"其他",
-                    tabBarFlag:false,
+                    tabBarFlag:true,
                     requiredAuth:false
                 }
             },

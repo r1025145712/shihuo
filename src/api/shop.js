@@ -3,20 +3,20 @@ import http from "@utils/request";
 * 
 * 接口:城市列表
 */
-export const brandApi = (r)=>http({
+export const brandApi = (r,p)=>http({
     method:"get",
     url:"/api/youhui/brandSale11",
     data:{
         r:r,
         news_id:0,
-        page:1
+        page:p||2
     }
 })
-export const columnApi = ()=>http({
+export const columnApi = (columnId)=>http({
     method:"get",
     url:"/api/column/getList",
     data:{
-        columnId:137,
+        columnId:columnId,
         pageSize:20,
         page:1
     }
@@ -25,10 +25,10 @@ export const listApi = (type,channel_type)=>http({
     method:"get",
     url:"/api/homefis/getNews",
     data:{
-        type:type,
+        type:type||"",
         pageSize:20,
         // param_str:p_str,
-        channel_type:channel_type
+        channel_type:channel_type||''
     }
 })
 

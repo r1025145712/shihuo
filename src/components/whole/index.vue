@@ -53,18 +53,39 @@ export default {
            let {id} = to.params;
             this.id = id;
             this.hanleBrandList(this.id);
-        }
+        },
+      brandList(){
+          this.$refs.scroll.handlefinishPullDown();
+            this.$refs.scroll.handlefinishPullUp();
+      }
+        
   },
   methods: {
-    async hanleBrandList(r) {
-      let data = await brandApi(r);
-      this.brandList = data.data.newDate;
+    async hanleBrandList(r,p,sign) {
+      let data = await brandApi(r,p);
+      if(sign){
+          this.brandList =[...this.brandList,...data.data.newDate] ;
+      }else{
+         this.brandList =[...data.data.newDate] ;
+      }
       document.title=this.$route.meta.title;
       
     }
   },
   mounted(){
-    console.lof(this.$refs.scroll)
+     this.$refs.scroll.handlepullingDown(()=>{
+       var arr=[1,2,3,4,5,6,7,8,9,10]
+       var index=parseInt(0+ Math.random()*10)
+       this.hanleBrandList(this.id,arr[index])
+     }),
+      this.$refs.scroll.handlepullingUp(()=>{
+          var sign=true;
+          var arr=[1,2,3,4,5,6,7,8,9,10]
+          var index=parseInt(0+ Math.random()*10)
+          this.hanleBrandList(this.id,arr[index],sign)
+      })
+      this.$refs.scroll.handleScroll();
+
   }
 };
 </script>

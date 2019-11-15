@@ -36,11 +36,21 @@ const router = new VueRouter({
 
     },
     {
-      path: "/column",
+      path: "/column/:columnId",
       component: () => import("@pages/column"),
       name: "column",
       meta: {
-        title: "识货栏目",
+        title: "装备评测",
+        tabBarFlag: false,
+        requiredAuth: false
+      },
+    },
+    {
+      path: "/hotnews/:columnId",
+      component: () => import("@pages/hotnews"),
+      name: "hotnews",
+      meta: {
+        title: "热门资讯",
         tabBarFlag: false,
         requiredAuth: false
       },
@@ -49,4 +59,17 @@ const router = new VueRouter({
 
 })
 
+// router.beforeEach((to,from,next)=>{
+//   document.title = to.meta.title;
+//   // console.log(to)
+//   if(to.path !="register" && to.meta.requiredAuth){
+//       if(localStorage.getItem("token")){
+//           next()
+//       }else{
+//           next({name:"register",params:{path:to.path}})
+//       }
+//   }else{
+//       next();
+//   }
+// })
 export default router

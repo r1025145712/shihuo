@@ -2,8 +2,8 @@
   <div class="page_home">
     <div class="pic_banner">
       <ul class="zone">
-        <li :class="item.sign" v-for="(item,index) in tabs" :key="index">
-          <a href style="display:block;overflow:hidden;">
+        <router-link :to="item.path" tag="li" :class="item.sign" v-for="(item,index) in tabs" :key="index">
+          <a  style="display:block;overflow:hidden;">
             <div class="tit">
               <h2>{{item.name}}</h2>
               <p class="subtit">{{item.text}}</p>
@@ -12,7 +12,7 @@
               <img :src="item.img" alt />
             </div>
           </a>
-        </li>
+        </router-link>
       </ul>
     </div>
     <section class="hot clearfix">
@@ -51,7 +51,7 @@
     <section class="hot-activity clearfix">
       <h3>热门活动</h3>
       <ul>
-        <router-link :to="item.path" tag="li" v-for="(item,index) in activitys" :key="index">
+        <router-link :to="item.path+'/'+item.columnId" tag="li" v-for="(item,index) in activitys" :key="index">
           <a>
             <div class="img">
               <img :src="item.img" alt />
@@ -80,6 +80,7 @@ export default {
       path:"#/preferential",
       tabs: [
         {
+            path:"/basketball",
           sign: "zone0",
           text: "纯白系列秒杀",
           name: "篮球",
@@ -87,6 +88,7 @@ export default {
             "http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
         },
         {
+             path:"/basketball",
           sign: "zone1",
           text: "女王节秒杀",
           name: "跑步",
@@ -94,6 +96,7 @@ export default {
             "http://shihuo.hupucdn.com/def/20180801/a580ec1affbbf4a344974bc92969c7671533133549.jpg?imageView2/0/w/160/h/160/interlace/1"
         },
         {
+             path:"/basketball",
           sign: "zone2",
           text: "步瑞特装备秒杀",
           name: "健身",
@@ -101,6 +104,7 @@ export default {
             "http://shihuo.hupucdn.com/def/20170915/0446a5d97bf800d5322341aab554035d1505460763.jpg?imageView2/0/w/160/h/160/interlace/1"
         },
         {
+             path:"/basketball",
           sign: "zone3",
           text: "其实是在吹总裁",
           name: "足球",
@@ -108,6 +112,7 @@ export default {
             "http://shihuo.hupucdn.com/def/20181105/2355ddafee2bdc0963e346192576c3631541383761.jpg?imageView2/0/w/160/h/160/interlace/1"
         },
         {
+             path:"/basketball",
           sign: "zone4",
           text: "78元短袖秒杀",
           name: "潮流",
@@ -115,6 +120,7 @@ export default {
             "http://shihuoproxy.hupucdn.com/aHR0cDovL2ltZy5hbGljZG4uY29tL2ltZ2V4dHJhL2kzL1RCMVVoVUtSVlhYWFhhTVhwWFhYWFhYWFhYWF8hITItaXRlbV9waWMucG5n?imageView2/0/w/160/h/160/interlace/1"
         },
         {
+             path:"/basketball",
           sign: "zone5",
           text: "家用电吹风",
           name: "数码",
@@ -131,9 +137,10 @@ export default {
             "http://shihuo.hupucdn.com/appHome/201808/1710/5e683699826e2a13abd239e4e4e36793.jpg"
         },
         {
-          path: "/brand",
+          path: "/hotnews",
           text: "热门资讯",
           name: "最新最热门的数码资讯",
+           columnId:245,
           img:
             "http://shihuo.hupucdn.com/appZone/201805/1414/c5f797407c24e87cb7648abc937e9955.jpg"
         },
@@ -141,6 +148,7 @@ export default {
           path: "/column",
           text: "跑步评测室",
           name: "最炫酷的跑步装备评测",
+          columnId:137,
           img:
             "http://shihuo.hupucdn.com/appZone/201803/2617/e6ae975eca6480b86354e92fa866a8e1.jpg"
         },
@@ -174,6 +182,7 @@ export default {
 <style  >
 .page_home {
   display: flex;
+  margin-bottom:.32rem; 
   flex-direction: column;
 }
 .pic_banner {
