@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="page">
+    <div class="page" ref="page">
        <Head/>
        <Nav/>
        <Main/>
@@ -19,9 +19,13 @@ export default {
     Head,Nav,Main
   },
   created() {
+    
     document.title = this.$route.meta.title;
-  }
+  },
+  
 };
+
+
 </script>
 
 <style  scoped>
@@ -29,7 +33,7 @@ html {
   font-size: 31.25vw;
   width: 100%;
   height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 body {
   widows: 100%;
