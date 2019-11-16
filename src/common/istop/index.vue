@@ -14,7 +14,6 @@ export default {
   align-items:center;
   height: .36rem;
   width: .36rem;
-  background:#fff
 }
 .back-top > span {
   display: inline-block;

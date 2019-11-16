@@ -13,10 +13,12 @@ server.interceptors.request.use((config)=>{
    if(config.method == "get"){
        config.params = {...config.data};
    }
-   loading.loadingMount();
+    loading.loadingMount();
+  
+   
 //    config.headers["content-type"]="applicetion/json";
    //拦截token
-   config.headers.AuthToken = "Cookie.get('token')";
+//    config.headers.AuthToken = "Cookie.get('token')";
 
    return config;
 },(err)=>{

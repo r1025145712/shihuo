@@ -17,13 +17,10 @@ export default {
     components:{
         Head,
         Part,
-    }
+    },
 }
 </script>
 
 <style  >
-.page1{
-   height: 100%;
-     overflow-y: auto;
-}
+
 </style>

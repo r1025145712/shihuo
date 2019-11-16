@@ -27,15 +27,15 @@
         <span>我的识货</span>
       </div>
       <ul>
-        <li>
-          <a href="register">
+        <router-link tag="li" to="/collect">
+          <a href>
             <img
               src="http://sh1.hoopchina.com.cn/images/trade/app/personal/collect_content.png"
               alt
             />
             <p>我的收藏</p>
           </a>
-        </li>
+        </router-link>
         <li>
           <a href>
             <img src="http://sh1.hoopchina.com.cn/images/trade/app/personal/my_shaiwu.png" alt />
@@ -74,6 +74,10 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import { Toast } from 'vant';
+
+Vue.use(Toast)
 export default {
   name: "more",
   created() {
@@ -95,10 +99,10 @@ export default {
         this.box = false;
         this.name = data.name;
       }
-      console.log(this.box);
     },
     hanleOut() {
       sessionStorage.removeItem("user");
+     Toast.success('已退出');
     }
   }
 };

@@ -7,6 +7,7 @@ import More from './more'
 import Equip from './equip'
 import Register from './register'
 import Brand from './brand/'
+import Collect from './collect'
 import { all } from 'any-promise'
 import Basketball from "./equip/basketball.js"
 import SearchShop from "@pages/searchshop"
@@ -32,6 +33,7 @@ const router = new VueRouter({
     Register,
     Brand,
     Basketball,
+    Collect,
     {
       path:"/searchshop",
       component:SearchShop
@@ -62,22 +64,33 @@ const router = new VueRouter({
         tabBarFlag: false,
         requiredAuth: false
       },
+    },
+    {
+      path:"detail/:title/:img/:intro",
+      component: () => import("@pages/details"),
+      name: "detail",
+      meta: {
+        title: "商品详情",
+        tabBarFlag: false,
+        requiredAuth: false
+      },
+        // props:true
     }
   ]
 
 })
 
-// router.beforeEach((to,from,next)=>{
-//   document.title = to.meta.title;
-//   // console.log(to)
-//   if(to.path !="register" && to.meta.requiredAuth){
-//       if(localStorage.getItem("token")){
-//           next()
-//       }else{
-//           next({name:"register",params:{path:to.path}})
-//       }
-//   }else{
-//       next();
-//   }
-// })
+router.beforeEach((to,from,next)=>{
+  document.title = to.meta.title;
+  // console.log(to)
+  if(to.path !="register" && to.meta.requiredAuth){
+      if(sessionStorage.getItem("user")){
+          next()
+      }else{
+          next({name:"register",params:{path:to.path}})
+      }
+  }else{
+      next();
+  }
+})
 export default router
