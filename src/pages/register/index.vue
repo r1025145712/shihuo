@@ -174,7 +174,7 @@ export default {
 /* 表单 */
 .home-wrapper {
   height: 2.3rem;
-  width: 3.4rem;
+  width: 3.2rem;
   padding: 0.25rem 0 0;
   background: #fff;
 }
@@ -204,7 +204,7 @@ export default {
 }
 .username,
 .userpassword {
-  width: 2.76rem;
+  width: 2.56rem;
   height: 0.32rem;
   border-bottom: 1px solid #e1e1e1;
   display: block;
