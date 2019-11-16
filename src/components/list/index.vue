@@ -1,10 +1,10 @@
 <template>
 
   <div class="list-view">
-    <RScroll ref="scroll">
+    <!-- <RScroll ref="scroll"> -->
     <ul>
-      <li v-for="(item,index) in list" :key="index">
-        <a class="link-a clearfix" v-if="item.show_type=='single1'" href>
+      <router-link v-for="(item,index) in list" tag="li" :key="index" :to='"/details/"+item.img+"/"+item.title'>
+        <a class="link-a clearfix" v-if="item.show_type=='single1'" >
           <div class="imgs">
             <span class="get_imgs">
               <img get="true" class="lazy" :src="item.data.img" />
@@ -73,9 +73,9 @@
             </div>
           </div>
         </a>
-      </li>
+      </router-link>
     </ul>
-      </RScroll>
+      <!-- </RScroll> -->
   </div>
 
 </template>
@@ -141,10 +141,10 @@ export default {
         this.$store.state.shop.channel_type
       );
     },
-       list(){
-          this.$refs.scroll.handlefinishPullDown();
-            this.$refs.scroll.handlefinishPullUp();
-      }
+      //  list(){
+      //     this.$refs.scroll.handlefinishPullDown();
+      //       this.$refs.scroll.handlefinishPullUp();
+      // }
   },
   methods: {
     hanleList(type, channel_type) {
@@ -152,12 +152,12 @@ export default {
       this.$store.dispatch("shop/handleActionsGetGoods", arr);
     }
   },
-    mounted(){
-      this.$refs.scroll.handlepullingUp(()=>{
-          this.hanleList(type, channel_type)
-      })
-      this.$refs.scroll.handleScroll();
-  }
+  //   mounted(){
+  //     this.$refs.scroll.handlepullingUp(()=>{
+  //         this.hanleList(type, channel_type)
+  //     })
+  //     this.$refs.scroll.handleScroll();
+  // }
 };
 </script>
 <style >

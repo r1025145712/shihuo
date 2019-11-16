@@ -3,34 +3,7 @@
         
        <div class="mainBox">
          
-        <div class="top_bar">
-            <div class="goback">
-                <a href="#/shouye">
-                <img src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/common/widget/header/head_back_b142dc1.png">
-                </a>
-            </div>
-            <span class="d-title">识货-栏目</span>
-            <div class="ico_list" @tap="hanleColumnCb()">
-                <img
-                    src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/common/widget/header/head_list_4a4f511.png">
-            </div>
-            <div class="header_nav" id="header_nav" v-if="box">
-                <div class="inner">
-                    <ul>
-                        <li>
-                            <a href="#/shouye" class="icons index">
-                                <img
-                                    src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/common/widget/header/homepage-icon_605ed60.png">首页</a>
-                        </li>
-                        <li>
-                            <a href="#/more" class="icons me">
-                                <img
-                                    src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/common/widget/header/user-center-icon_77dfd45.png">我的</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
+       <TOP/>
             <RScroll>
         <div class="pagecontent">
             <div class="banner">
@@ -76,6 +49,7 @@
 </template>
 <script>
 import { columnApi } from "@api/shop";
+import TOP from "./top"
 export default {
   name: "column",
   data() {
@@ -83,6 +57,9 @@ export default {
           columnList: [],
           box:false
     };
+  },
+components:{
+  TOP
   },
   created(){
    document.title=this.$route.meta.title;

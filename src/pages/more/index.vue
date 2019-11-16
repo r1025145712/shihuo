@@ -74,6 +74,10 @@
 </template>
 
 <script>
+import Vue from 'vue';
+import { Toast } from 'vant';
+
+Vue.use(Toast)
 export default {
   name: "more",
   created() {
@@ -95,10 +99,10 @@ export default {
         this.box = false;
         this.name = data.name;
       }
-      console.log(this.box);
     },
     hanleOut() {
       sessionStorage.removeItem("user");
+     Toast.success('已退出');
     }
   }
 };

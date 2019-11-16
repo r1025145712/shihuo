@@ -1,5 +1,6 @@
 <template>
   <div class="page_home">
+    <Swiper/>
     <div class="pic_banner">
       <ul class="zone">
         <router-link :to="item.path" tag="li" :class="item.sign" v-for="(item,index) in tabs" :key="index">
@@ -71,9 +72,11 @@
 
 <script>
 import List from '../list'
+import Swiper from '../swiper'
 export default {
   components: {
-    List
+    List,
+    Swiper
   },
   data() {
     return {

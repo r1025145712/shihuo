@@ -54,6 +54,16 @@ const router = new VueRouter({
         tabBarFlag: false,
         requiredAuth: false
       },
+    },
+    {
+      path: "/details/:img/:title",
+      component: () => import("@pages/details"),
+      name: "details",
+      meta: {
+        title: "商品详情",
+        tabBarFlag: false,
+        requiredAuth: false
+      },
     }
   ]
 

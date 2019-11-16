@@ -1,7 +1,7 @@
 import {listApi} from "@api/shop.js";
 
 let state = {
-    goodsList: [],
+   goodsList:JSON.parse(sessionStorage.getItem("goodsList")) || [],
     active:(sessionStorage.getItem("index"))||"0",
     active1:(sessionStorage.getItem("index1"))||"0",
     type:(sessionStorage.getItem("nm")) ||"",
@@ -27,6 +27,7 @@ let mutations = {
     handleUpdateShop(state,params){
         state.goodsList = params;
         // state.goodsList =[...state.goodsList,...params] ;
+        sessionStorage.setItem("goodsList",JSON.stringify(state.goodsList))
         sessionStorage.setItem("nm",state.type);
         sessionStorage.setItem("tx",state.channel_type);
         // console.log((sessionStorage.getItem("nm")),(sessionStorage.getItem("tx")))
