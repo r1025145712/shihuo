@@ -7,6 +7,7 @@ import More from './more'
 import Equip from './equip'
 import Register from './register'
 import Brand from './brand/'
+import Collect from './collect'
 import { all } from 'any-promise'
 import Basketball from "./equip/basketball.js"
 Vue.use(VueRouter)
@@ -29,6 +30,7 @@ const router = new VueRouter({
     Register,
     Brand,
     Basketball,
+    Collect,
     {
       name:"Running",
       path:"/running",
@@ -56,30 +58,31 @@ const router = new VueRouter({
       },
     },
     {
-      path: "/details/:img/:title",
+      path:"detail/:title/:img/:intro",
       component: () => import("@pages/details"),
-      name: "details",
+      name: "detail",
       meta: {
         title: "商品详情",
         tabBarFlag: false,
         requiredAuth: false
       },
+        // props:true
     }
   ]
 
 })
 
-// router.beforeEach((to,from,next)=>{
-//   document.title = to.meta.title;
-//   // console.log(to)
-//   if(to.path !="register" && to.meta.requiredAuth){
-//       if(localStorage.getItem("token")){
-//           next()
-//       }else{
-//           next({name:"register",params:{path:to.path}})
-//       }
-//   }else{
-//       next();
-//   }
-// })
+router.beforeEach((to,from,next)=>{
+  document.title = to.meta.title;
+  // console.log(to)
+  if(to.path !="register" && to.meta.requiredAuth){
+      if(sessionStorage.getItem("user")){
+          next()
+      }else{
+          next({name:"register",params:{path:to.path}})
+      }
+  }else{
+      next();
+  }
+})
 export default router

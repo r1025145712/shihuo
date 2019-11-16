@@ -55,7 +55,6 @@ export default {
   data() {
     return {
           columnList: [],
-          box:false
     };
   },
     components:{
@@ -72,10 +71,6 @@ export default {
       let data = await columnApi(columnId);
       this.columnList = data.data;
     },
-    hanleColumnCb(){
-        this.box=!this.box
-          console.log(this.box)
-    }
   }
 };
 </script>

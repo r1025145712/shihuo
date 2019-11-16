@@ -1,79 +1,100 @@
-<template>      
-       <div class="mainBox">
-            <TOP/>
-            <div class="details">
-                 <Swiper/>
-            </div>
-            <div class="h2">
-                <h2>商品名称</h2>
-            </div>
-            <div class="h3">
-                <div class="t1">Air Jordan 3在1987年底上市，由当时还名不见经传的设计师Tinker Ha...</div>
-                <div class="t2"><a href="javascript:void(0);" class="more show_app_layer">
-                   <span>详情</span>
-                    <img src="//sh1.hoopchina.com.cn/fis_static/shihuomobile/static/sports/detail/dt_5edb752.png"></a></div>
-            </div>   
-        </div>
+<template>
+  <div class="mainBox">
+    <TOP />
+    <div class="top-block">
+      <div class="pro_img">
+        <img alt="Nike Air Zoom Pegasus 36 黑橘" :src="img" width="100%" />
+      </div>
+    </div>
+    <div class="pro_title clearfix">
+      <div class="n-font">{{title}}</div>
+      <p class="cr">到手价319元</p>
+    </div>
+    <div class="goods-detail-box">
+      <div class="goods-detail editor-frame" id="goods-detail" style>
+        <p>{{intro}}</p>
+      </div>
+    </div>
+  </div>
 </template>
 <script>
-import TOP from "./top"
-import Swiper from "./swiper"
+import TOP from "./top";
 export default {
-    name:"top",
-   components:{
-        TOP,
-        Swiper
-    },
-    created(){
-        let {img,title}=this.$route.params;
-        console.log(img,title)
-    }
-}
+  name: "top",
+  data() {
+    return {
+      title: "",
+      img: "",
+      intro: ""
+    };
+  },
+  components: {
+    TOP,
+  },
+  created() {
+    console.log(this.$route.params);
+    /*
+        动态路由 */
+    let { title, img, intro } = this.$route.params;
+    this.img = img;
+    this.title = title;
+    this.intro = intro;
+  }
+};
 </script>
 <style >
-.mainBox{
-    display: flex;
-    flex-direction:column ;
+.mainBox {
+  display: flex;
+  flex-direction: column;
 }
-.details{
-    margin-top:.48rem; 
+.top-block {
+  background: #fff;
 }
-.details .h2{
-    font-size: .13rem;
-    padding: .04rem .09rem 0
+.pro_img {
+  width: 100%;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: center;
 }
-.details .h3{
-    height: .41rem;
-    display: flex;
-    flex-direction:column;
-    justify-content: space-between;
-    align-content: center;
+.pro_img img {
+  width: 80%;
+  margin-left: 10%;
 }
-.h3 .t1 {
-    width: 2.4rem;
-    color: #666;
-     float: left;
-    font-size: .11rem;
-    max-height: .325rem;
-    text-overflow: ellipsis;
+.pro_title {
+  background: #fff;
+  color: #333333;
+  width: 100%;
+  padding: 0.1rem 0.1rem;
 }
-    .h3 .t2 {
-   display: flex;
-   float: left;
-    font-size: .1rem;
-    width: .6rem;
-    margin-left: .2rem;
-   
+.pro_title .n-font {
+  color: #333333;
+  width: 100%;
+  font-size: 0.16rem;
+  font-weight: normal;
 }
-  .h3 .t2 a{
-      float: right;
-       color: #278ccf;
-  }
- 
-    .h3 .t2 img {
-    margin-left: .04rem;
-     float: right;
-    width:.07rem;
+.cr {
+  color: #ff4338;
+  margin-top: 0.05rem;
+  clear: both;
+  font-size: 0.14rem;
 }
-  
+.goods-detail-box {
+    width: 100%;
+    background: #fff;
+    padding: 0 .05rem;
+    margin-bottom: .1rem;
+}
+.goods-detail-box .goods-detail p {
+    text-indent: 2em;
+}
+
+body .editor-frame>p {
+    padding: 5px 0;
+}
+p {
+  font-size: 0.16rem;
+  line-height: 0.3rem;
+  color: #333;
+  white-space: pre-line;
+}
 </style>

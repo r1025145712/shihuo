@@ -5,7 +5,7 @@
                 <img src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/common/widget/header/head_back_b142dc1.png">
                 </a>
             </div>
-            <span class="d-title">识货-栏目</span>
+            <span class="d-title">我的收藏</span>
             <div class="ico_list" @click="hanleColumnCb()">
                 <img
                     src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/common/widget/header/head_list_4a4f511.png">

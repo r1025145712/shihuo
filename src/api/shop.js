@@ -21,13 +21,13 @@ export const columnApi = (columnId)=>http({
         page:1
     }
 })
-export const listApi = (type,channel_type)=>http({
+export const listApi = (type,channel_type,p_str)=>http({
     method:"get",
     url:"/api/homefis/getNews",
     data:{
         type:type||"",
         pageSize:20,
-        // param_str:p_str,
+        param_str:p_str,
         channel_type:channel_type||''
     }
 })

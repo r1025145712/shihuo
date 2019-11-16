@@ -3,7 +3,7 @@
   <div class="list-view">
     <!-- <RScroll ref="scroll"> -->
     <ul>
-      <router-link v-for="(item,index) in list" tag="li" :key="index" :to='"/details/"+item.img+"/"+item.title'>
+      <router-link v-for="(item,index) in  list" tag="li" :key="index"  :to="{name:'detail',params:{title:item.data.title,img:item.data.img,intro:item.data.intro}}">
         <a class="link-a clearfix" v-if="item.show_type=='single1'" >
           <div class="imgs">
             <span class="get_imgs">
@@ -84,6 +84,9 @@ import { listApi } from "@api/shop";
 import { mapState, mapMutations } from "vuex";
 export default {
   name: "list",
+  provide:{
+   img:""
+  },
   data() {
     return {
       // list: [],
@@ -152,12 +155,21 @@ export default {
       this.$store.dispatch("shop/handleActionsGetGoods", arr);
     }
   },
-  //   mounted(){
-  //     this.$refs.scroll.handlepullingUp(()=>{
-  //         this.hanleList(type, channel_type)
-  //     })
-  //     this.$refs.scroll.handleScroll();
-  // }
+  mounted() {
+    // console.log(111111111111)
+    let that = this;
+    
+    window.addEventListener("scroll", function() {
+      if (window.pageYOffset + window.innerHeight >= document.documentElement.scrollHeight
+      ) {
+      // console.log(  window.pageYOffset + window.innerHeight)
+      // console.log( document.documentElement.scrollHeight)
+      var arr=['1573892884:2:','1573892884:3:','1573892884:4:','1573892884:5:','1573892884:6:']
+       var index=parseInt(0+ Math.random()*5)
+        // that.hanleList();
+      }
+    });
+  }
 };
 </script>
 <style >
