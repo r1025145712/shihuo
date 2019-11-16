@@ -4,22 +4,22 @@
       <li  v-for="(item,index) in list" :key="index">
         <div class="author">
           <a href="javascript:void(0);" class="face">
-            <img :src="item.avater" />
+            <img :src="item.data.avatar" />
           </a>
           <div class="nameM">
-            <p class="name">{{item.author_name}}</p>
-            <p class="time">{{item.data}}</p>
+            <p class="name">{{item.data.author_name}}</p>
+            <p class="time">{{item.data.date}}</p>
           </div>
         </div>
         <div class="content">
           <a href>
-            <div class="tit">{{item.title}}</div>
+            <div class="tit">{{item.data.title}}</div>
             <p class="imgOne">
-              <img :src="item.img" class="lazy" />
+              <img :src="item.data.img" class="lazy" />
             </p>
             <div class="tags">
-              <span class="like">{{item.praise}}</span>
-              <span class="say">{{item.reply_count}}</span>
+              <span class="like">{{item.data.praise}}</span>
+              <span class="say">{{item.data.reply_count}}</span>
             </div>
           </a>
         </div>
@@ -39,7 +39,6 @@ export default {
       list: [],
       id: "",
     };
-    console.log(id)
   },
   created() {
     let { id } = this.$route.params;
@@ -69,7 +68,7 @@ export default {
   padding-left: 0.085rem;
   padding-bottom: 0.17rem;
   width: 100%;
-  height: 7.5rem;
+  min-height: 7.5rem;
 }
 
 #jingxList {

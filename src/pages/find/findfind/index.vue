@@ -23,7 +23,7 @@
 
 <script>
 export default {
-    name:"findsss",
+    name:"finfind",
   components: {},
   data() {
     return {
