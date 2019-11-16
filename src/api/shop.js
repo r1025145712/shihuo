@@ -34,6 +34,19 @@ export const listApi = (type,channel_type)=>http({
 
 
 
+// 发现接口
+
+export const finds=(id)=>http({
+    method:"get",
+    url:"/api/find/mobileList",
+    data:{
+        tag_id:id
+    }
+})
+
+
+
+
 
 // 优惠接口
 // 精选接口
