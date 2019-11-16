@@ -42,11 +42,7 @@ Vue.directive('back-top',{
 
 
 
-<<<<<<< HEAD
-
-=======
 Vue.config.productionTip = false
->>>>>>> lk
 Vue.use(VueTouch,{name:"v-touch"});
 
 new Vue({

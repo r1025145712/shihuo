@@ -59,7 +59,6 @@ export default {
         this.loadingFlag = false;
       }, 500);
     },
-<<<<<<< HEAD
         //上拉加载更多
     handlepullingUp(callback){
       this.scroll.on('pullingUp',()=>{
@@ -71,28 +70,6 @@ export default {
       this.scroll.finishPullUp();
       //重新计算better-scroll
       this.scroll.refresh();
-=======
-    methods:{
-         handlepullingDown(callback) {
-            this.scroll.on("pullingDown", () => {
-                callback();
-            });
-        },
-
-        //上拉加载更多
-
-        handlepullingUp(callback){
-            this.scroll.on('pullingUp'),()=>{
-                callback();
-            }
-        }
-
-
-
-
-
-
->>>>>>> lk
     }
   }
 };
