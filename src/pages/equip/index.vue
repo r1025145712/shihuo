@@ -1,6 +1,7 @@
 <template>
   <div>
     <div class="page" ref="page">
+     
        <Head/>
        <Nav/>
        <Main/>

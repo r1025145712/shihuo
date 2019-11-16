@@ -1,6 +1,7 @@
 <template>
   <div>
     <Topbar title="篮球专区" :backPath="'/shouye'"></Topbar>
+   
     <div class="main">
       <div class="menu_block">
         <ul>
