@@ -2,7 +2,7 @@
   <div>
     <div class="tj-area">
       <p>最新推荐</p>
-      <div class="clearfix" v-for="(item,index) in list " :key="index">
+      <div class="clearfix" v-for="(item,index) in list " :key="index" @click="toDetail(item.data)">
         <div class="imgs">
           <img :src="item.data.img" alt />
         </div>
@@ -47,13 +47,25 @@ export default {
     loadingMore(page) {
       equip({ page: page }).then(data => {
         console.log(data);
-        this.list = [...this.list,...data.data]
+        this.list = [...this.list, ...data.data];
+      });
+    },
+    toDetail(data) {
+      console.log(data);
+      this.$router.push({
+        name: "detail",
+        params: {
+          title: data.title,
+          img: data.img,
+          intro: data.intro,
+          price:data.price
+        }
       });
     }
   },
   mounted() {
     let that = this;
-    
+
     window.addEventListener("scroll", function() {
       if (
         window.pageYOffset + window.innerHeight >=
