@@ -10,8 +10,7 @@
       <form action class="index-from">
         <div class="input-box name-ipt">
           <label class="text-label text-label-user" for="login-username"></label>
-          <input
-            ref="username"
+          <input  v-model="username"
             class="username"
             type="text"
             data-text="账号"
@@ -23,7 +22,7 @@
         <div class="input-box pwd-ipt">
           <label class="text-label text-label-pwd" for="login-pwd"></label>
           <input
-            ref="password"
+             v-model="password"
             type="password"
             class="userpassword"
             data-text="密码"
@@ -40,8 +39,9 @@
           <a @click="hanleSub" dace-node="8000_reg">注册</a>
           <input
             type="submit"
-            @click="hanleAdd"
+         
             value="登录"
+            @click.prevent="hanleAdd"
             class="login-btn"
             dace-node="8000_login"
           />
@@ -74,52 +74,64 @@
 
 <script>
 import axios from "axios";
+import Vue from "vue";
+import { Toast } from "vant";
+Vue.use(Toast);
 export default {
   name: "more",
+  data(){
+    return{
+      username:"",
+      password:"",
+    }
+  },
   created() {
     document.title = this.$route.meta.title;
   },
   created() {},
   methods: {
     hanleSub() {
-      let username = this.$refs.username.value;
-      let password = this.$refs.password.value;
+      axios({
+        method: "get",
+        url: "http://localhost:3000/user?username=" + this.username
+      }).then(data => {
+        if(data.data.length==0){
+            this.hanleRegister()
+        }
+        else{
+            Toast.fail('用户名已存在');
+         }
+         
+      });
+    },
+    hanleRegister() {
       let name = Math.random()
         .toString(36)
         .substr(2, 8);
-    
-        // axios({
-        //   method: "get",
-        //   url: "http://localhost:3000/user?username=" + username
-        // }).then(data => {
-        //   if (data.data[0].username == username) {
-        //     alert("用户名已经被注册");
-        //   }
-        // });
-     
         axios({
           method: "post",
           url: "http://localhost:3000/user",
           data: {
-            username: username,
-            password: password,
+            username: this.username,
+            password: this.password,
             name: name
           }
         });
+          Toast.success("注册成功");
     },
     hanleAdd() {
-      var username = this.$refs.username.value;
-      var password = this.$refs.password.value;
+
       axios({
         method: "get",
         url:
           "http://localhost:3000/user?username=" +
-          username +
+          this.username +
           "&password=" +
-          password
+          this.password
       }).then(data => {
         sessionStorage.setItem("user", JSON.stringify(data.data[0]));
         this.$router.push("/more");
+        Toast.success("登录成功");
       });
     }
   },

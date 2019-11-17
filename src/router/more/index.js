@@ -7,4 +7,5 @@ export default {
         tabBarFlag:true,
         requiredAuth:false
     },
+    
 }
