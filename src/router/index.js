@@ -10,6 +10,7 @@ import Brand from './brand/'
 import { all } from 'any-promise'
 import Basketball from "./equip/basketball.js"
 import SearchShop from "@pages/searchshop"
+import DetailJack from "@pages/detailjack"
 
 
 Vue.use(VueRouter)
@@ -36,7 +37,6 @@ const router = new VueRouter({
       path:"/searchshop",
       component:SearchShop
     },
-    
     {
       name:"Running",
       path:"/running",
