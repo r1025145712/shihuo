@@ -11,7 +11,6 @@ import Collect from './collect'
 import { all } from 'any-promise'
 import Basketball from "./equip/basketball.js"
 import SearchShop from "@pages/searchshop"
-import DetailJack from "@pages/detailjack"
 
 
 Vue.use(VueRouter)
