@@ -678,7 +678,11 @@
     core-js-pure "^3.0.0"
     regenerator-runtime "^0.13.2"
 
+<<<<<<< HEAD
 "@babel/runtime@7.x", "@babel/runtime@^7.0.0", "@babel/runtime@^7.6.3":
+=======
+"@babel/runtime@7.x", "@babel/runtime@^7.6.3":
+>>>>>>> de63c5cad7ba7bd4aaaf92039200115360b7ed03
   version "7.7.2"
   resolved "https://registry.npm.taobao.org/@babel/runtime/download/@babel/runtime-7.7.2.tgz?cache=0&sync_timestamp=1573083066587&other_urls=https%3A%2F%2Fregistry.npm.taobao.org%2F%40babel%2Fruntime%2Fdownload%2F%40babel%2Fruntime-7.7.2.tgz#111a78002a5c25fc8e3361bedc9529c696b85a6a"
   integrity sha1-ERp4ACpcJfyOM2G+3JUpxpa4Wmo=
