@@ -8,7 +8,7 @@
     </div>
     <div class="pro_title clearfix">
       <div class="n-font">{{title}}</div>
-      <p class="cr">到手价319元</p>
+      <p class="cr">到手价{{price}}元</p>
     </div>
     <div class="goods-detail-box">
       <div class="goods-detail editor-frame" id="goods-detail" style>
@@ -25,7 +25,8 @@ export default {
     return {
       title: "",
       img: "",
-      intro: ""
+      intro: "",
+      price:""
     };
   },
   components: {
@@ -35,10 +36,11 @@ export default {
     console.log(this.$route.params);
     /*
         动态路由 */
-    let { title, img, intro } = this.$route.params;
+    let { title, img, intro,price } = this.$route.params;
     this.img = img;
     this.title = title;
     this.intro = intro;
+    this.price=price
   }
 };
 </script>

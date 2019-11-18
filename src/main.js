@@ -6,6 +6,8 @@ import VueTouch from 'vue-touch'
 import "@common/filter"
 import "@common/components"
 import "@common/index.js"
+import VueCookies from 'vue-cookies'
+Vue.use(VueCookies)
 
 Vue.config.productionTip = false;
 

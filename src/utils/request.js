@@ -18,7 +18,7 @@ server.interceptors.request.use((config)=>{
    
 //    config.headers["content-type"]="applicetion/json";
    //拦截token
-//    config.headers.AuthToken = "Cookie.get('token')";
+   config.headers.AuthToken = "this.$cookies.get('token')";
 
    return config;
 },(err)=>{

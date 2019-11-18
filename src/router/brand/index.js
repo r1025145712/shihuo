@@ -18,7 +18,7 @@ export default {
                 meta:{
                     title:"全部",
                     tabBarFlag:true,
-                    requiredAuth:true
+                    requiredAuth:false
                 }
             },
             {

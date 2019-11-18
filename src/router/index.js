@@ -58,7 +58,7 @@ const router = new VueRouter({
       },
     },
     {
-      path:"detail/:title/:img/:intro",
+      path:"detail/:title/:img/:intro/:price",
       component: () => import("@pages/details"),
       name: "detail",
       meta: {
@@ -72,17 +72,17 @@ const router = new VueRouter({
 
 })
 
-router.beforeEach((to,from,next)=>{
-  document.title = to.meta.title;
-  // console.log(to)
-  if(to.path !="register" && to.meta.requiredAuth){
-      if(sessionStorage.getItem("user")){
-          next()
-      }else{
-          next({name:"register",params:{path:to.path}})
-      }
-  }else{
-      next();
-  }
-})
+// router.beforeEach((to,from,next)=>{
+//   document.title = to.meta.title;
+//   // console.log(to)
+//   if(to.path !="register" && to.meta.requiredAuth){
+//       if(sessionStorage.getItem("user")){
+//           next()
+//       }else{
+//           next({name:"register",params:{path:to.path}})
+//       }
+//   }else{
+//       next();
+//   }
+// })
 export default router
