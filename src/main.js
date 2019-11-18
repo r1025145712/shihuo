@@ -7,6 +7,8 @@ import "@common/filter"
 import "@common/components"
 import "@common/index.js"
 
+import { Card } from 'vant';
+
 
 import {
   GoodsAction,
@@ -19,6 +21,8 @@ Vue
   .use(GoodsActionIcon)
   .use(GoodsActionButton);
 
+  
+  Vue.use(Card);
 
 
 Vue.config.productionTip = false;
