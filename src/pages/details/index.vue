@@ -45,7 +45,7 @@ export default {
     this.img = img;
     this.title = title;
     this.intro = intro;
-    this.price = price;
+    this.price=price
   }
 };
 </script>

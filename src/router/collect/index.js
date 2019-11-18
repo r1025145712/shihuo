@@ -4,6 +4,6 @@ export default {
     meta:{
         title:"我的收藏",
         tabBarFlag:true,
-        requiredAuth:false
+        requiredAuth:true
     }
 }

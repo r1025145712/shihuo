@@ -21,6 +21,44 @@ export const columnApi = (columnId)=>http({
         page:1
     }
 })
+// 注册
+export const userApi = (username,password)=>http({
+    method:"post",
+    url:"node//users/register",
+    data:{
+        username: username,
+        password: password,
+    }
+})
+// 登录
+export const loginApi = (username,password)=>http({
+    method:"post",
+    url:"node/users/login",
+    data:{
+        username: username,
+        password: password,
+    }
+})
+// 修改图片
+export const modifyApi = (formData)=>http({
+    method:"post",
+    url:"node/upload/urlImage",
+    data:formData, 
+    processData: false,
+    cache: false,
+    // contentType: "multipart/form-data",
+    headers: { "content-type": "multipart/form-data" }
+})
+// 修改资料
+export const modify1Api = (name,img,id)=>http({
+    method:"post",
+    url:"node/users/modify",
+    data: {
+        name2:name,
+        img,
+        id
+    },
+})
 export const listApi = (type,channel_type,p_str)=>http({
     method:"get",
     url:"/api/homefis/getNews",

@@ -1,7 +1,7 @@
 <template>
     <div class="top_bar">
             <div class="goback">
-                <a href="#/shouye">
+                <a @click="hanleCb">
                 <img src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/common/widget/header/head_back_b142dc1.png">
                 </a>
             </div>
@@ -37,6 +37,9 @@ export default {
   methods: {
     hanleColumnCb() {
       this.box = !this.box;
+    },
+      hanleCb(){
+       this.$router.back();
     }
   }
 }
