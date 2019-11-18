@@ -3,7 +3,7 @@
     <Search @handler="getData"></Search>
     <div class="fix"></div>
     <div class="goodlist">
-      <div class="good" v-for="(item,index) in data" :key="index">
+      <div class="good" v-for="(item,index) in data" :key="index" @click="toDetail(item)">
           <img :src="item.pic" alt="">
         <p>{{item.name}}</p>
         <p>{{item.intro}}</p>
@@ -25,6 +25,18 @@ export default {
     getData(params) {
       console.log(params);
       this.data= params.data.list;
+    },
+    toDetail(data) {
+      console.log(1111,data);
+      this.$router.push({
+        name: "detail",
+        params: {
+          title: data.name,
+          img: data.pic,
+          intro: data.intro,
+          price:data.goodsPrice
+        }
+      });
     }
   }
 };
