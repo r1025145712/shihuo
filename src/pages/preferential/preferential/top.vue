@@ -3,14 +3,17 @@
     <div class="searchBox">
       <form id="searchform" action="#">
         <div class="search">
-          <input
+          <router-link 
+            tag="input"
+            to="/search"
             type="search"
             class="input"
             name="search"
             placeholder="搜索全网低价好券"
             id="searchVal"
-            value
-          />
+            value>
+          </router-link>
+            
         </div>
       </form>
     </div>

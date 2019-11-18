@@ -20,6 +20,7 @@ export default {
             path:"今日推荐/:id",
             component:finds,
             meta: {
+                title:"识货发现",
                 tabBarFlag: true,
                 requiredAuth: false
             },

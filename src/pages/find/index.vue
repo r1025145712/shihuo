@@ -23,7 +23,12 @@ export default {
     Findhot,
     Findsearch,
     Findfind,
-  }
+  },
+      created(){
+  
+         document.title = this.$route.meta.title
+
+    }, 
 }
 </script>
 

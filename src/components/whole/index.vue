@@ -73,23 +73,7 @@ export default {
     }
   },
   mounted(){
-<<<<<<< HEAD
-     this.$refs.scroll.handlepullingDown(()=>{
-       var arr=[1,2,3,4,5,6,7,8,9,10]
-       var index=parseInt(0+ Math.random()*10)
-       this.hanleBrandList(this.id,arr[index])
-     }),
-      this.$refs.scroll.handlepullingUp(()=>{
-          var sign=true;
-          var arr=[1,2,3,4,5,6,7,8,9,10]
-          var index=parseInt(0+ Math.random()*10)
-          this.hanleBrandList(this.id,arr[index],sign)
-      })
-      this.$refs.scroll.handleScroll();
-
-=======
     console.log(this.$refs.scroll)
->>>>>>> eee0c7c6d8360eeed7fb91d6e4c5488be140a682
   }
 };
 </script>

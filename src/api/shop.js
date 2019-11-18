@@ -112,6 +112,15 @@ export const preferentialInterest=(publish_date)=>http({
 
 
 
+// 搜索接口
+
+export const search=(keywords)=>http({
+    method:"get",
+    url:"/api/search/relatedKeywords",
+    data:{
+        keywords
+    }
+})
 
 
 

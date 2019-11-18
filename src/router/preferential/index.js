@@ -10,6 +10,7 @@ export default {
     component: () => import("@pages/preferential"),
     name: "preferential",
     meta: {
+        title:"识货优惠",
         tabBarFlag: true,
         requiredAuth: false
     },
@@ -27,7 +28,8 @@ export default {
             name:"preferentialSelected",
             meta: {
                 tabBarFlag: true,
-                requiredAuth: false
+                requiredAuth: false,
+                title:"优惠精选",
             },
         },
         //鞋类
@@ -38,7 +40,8 @@ export default {
             name:"preferentialFootwear",
             meta: {
                 tabBarFlag: true,
-                requiredAuth: false
+                requiredAuth: false,
+                title:"优惠鞋类",
             },
         },
         //服饰
@@ -49,7 +52,8 @@ export default {
             name:"preferentialTrappings",
             meta: {
                 tabBarFlag: true,
-                requiredAuth: false
+                requiredAuth: false,
+                title:"优惠服饰",
             },
         },
         //数码
@@ -60,7 +64,8 @@ export default {
             name:"preferentialDigital",
             meta: {
                 tabBarFlag: true,
-                requiredAuth: false
+                requiredAuth: false,
+                title:"优惠数码",
             },
         },
         //兴趣
@@ -71,7 +76,8 @@ export default {
             name:"preferentialInterest",
             meta: {
                 tabBarFlag: true,
-                requiredAuth: false
+                requiredAuth: false,
+                title:"优惠兴趣",
             },
         },
 

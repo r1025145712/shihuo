@@ -20,6 +20,11 @@ import Shop from "../preferential/preferential/shop";
 
 export default {
   name: "preferential",
+          created(){
+  
+         document.title = this.$route.meta.title
+
+    }, 
   components: {
     Top,
     Yhq,

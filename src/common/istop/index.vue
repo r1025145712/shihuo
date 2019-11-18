@@ -14,6 +14,8 @@ export default {
   align-items:center;
   height: .36rem;
   width: .36rem;
+  border-radius: .18rem;
+  // z-index: 999;
   background:#fff
 }
 .back-top > span {

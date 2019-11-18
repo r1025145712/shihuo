@@ -9,6 +9,8 @@ import Register from './register'
 import Brand from './brand/'
 import { all } from 'any-promise'
 import Basketball from "./equip/basketball.js"
+import search from "./search"
+
 Vue.use(VueRouter)
 
 
@@ -29,6 +31,7 @@ const router = new VueRouter({
     Register,
     Brand,
     Basketball,
+    search,
     {
       name:"Running",
       path:"/running",
