@@ -9,8 +9,6 @@ import "@common/index.js"
 import VueCookies from 'vue-cookies'
 Vue.use(VueCookies)
 
-import { Card } from 'vant';
-
 
 import {
   GoodsAction,

@@ -1,6 +1,6 @@
 <template>
   <div class="headBox">
-    <div class="search_bar">
+    <div class="search_bar" >
       <form
         action
         id="searchBox"
@@ -9,7 +9,7 @@
         style="background: rgba(221, 23, 18, 0);"
       >
         <div class="search_box">
-          <div class="search">
+          <div class="search" @click="search">
             <input
               type="text"
               class="input"
@@ -41,6 +41,11 @@ export default {
          path: "#/more"
     }
   },
+  methods:{
+      search(){
+        this.$router.push("/searchshop")
+      }
+  }
 };
 </script>
 
