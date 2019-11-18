@@ -8,6 +8,19 @@ import "@common/components"
 import "@common/index.js"
 
 
+import {
+  GoodsAction,
+  GoodsActionIcon,
+  GoodsActionButton
+} from 'vant';
+
+Vue
+  .use(GoodsAction)
+  .use(GoodsActionIcon)
+  .use(GoodsActionButton);
+
+
+
 Vue.config.productionTip = false;
 
 
