@@ -9,12 +9,7 @@
             v-for="(list,index) in sort "
             :key="index"
           >{{list.text}}</li>
-           <!-- <router-link
-            tag="li"
-            :to="'/shouye/'+item.path+'/'+item.type"
-            v-for="(item,index) in sort "
-            :key="index"
-          >{{item.text}}</router-link> -->
+           
         </ul>
       </div>
       <div class="list-submenu">

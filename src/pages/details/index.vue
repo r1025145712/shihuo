@@ -15,9 +15,13 @@
         <p>{{intro}}</p>
       </div>
     </div>
+
+
+    <GoodsAction></GoodsAction>
   </div>
 </template>
 <script>
+import GoodsAction from "./goodsAction"
 import TOP from "./top";
 export default {
   name: "top",
@@ -30,11 +34,12 @@ export default {
     };
   },
   components: {
-    TOP,
+    TOP,GoodsAction
   },
   created() {
     console.log(this.$route.params);
-    /*
+    
+    /*  
         动态路由 */
     let { title, img, intro,price } = this.$route.params;
     this.img = img;

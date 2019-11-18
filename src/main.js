@@ -9,6 +9,20 @@ import "@common/index.js"
 import VueCookies from 'vue-cookies'
 Vue.use(VueCookies)
 
+
+import {
+  GoodsAction,
+  GoodsActionIcon,
+  GoodsActionButton
+} from 'vant';
+
+Vue
+  .use(GoodsAction)
+  .use(GoodsActionIcon)
+  .use(GoodsActionButton);
+
+
+
 Vue.config.productionTip = false;
 
 

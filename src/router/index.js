@@ -35,10 +35,13 @@ const router = new VueRouter({
     Basketball,
     Collect,
     {
+      name:"search",
       path:"/searchshop",
-      component:SearchShop
+      component:SearchShop,
+      meta:{
+        title:"搜索"
+      }
     },
-    
     {
       name:"Running",
       path:"/running",
