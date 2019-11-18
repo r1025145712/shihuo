@@ -68,7 +68,7 @@
         </li>
       </ul>
     </div>
-    <van-dialog v-model="show" title="修改资料" show-cancel-button>
+    <van-dialog v-model="show" title="修改资料" show-cancel-button :beforeClose="beforeClose">
       <div class="form-group">
         <label for="modal_booksAuth">用户昵称</label>
         <input type="text" class="form-control" id="modal_name" v-model="name" ref="modal_name"  placeholder="请输入昵称" />
@@ -129,7 +129,6 @@ export default {
     },
     hanleModify() {
       this.show = !this.show;
-      console.log(this.$refs.modal_name)
     },
     handleFileChangeCb() {
         //ajax模拟form表单上传
@@ -143,14 +142,28 @@ export default {
       if (data.data.urlImage) {
              this.$refs.img.src= data.data.urlImage;
              this.urlPic=data.data.urlImage;
-             sessionStorage.setItem("name",this.name);
-            sessionStorage.setItem("urlPic",this.urlPic);
-            this.hanleModify1(this.name,this.urlPic,this.id)
+      }
+    },
+   beforeClose(action, done) {
+      if(action === 'confirm') {
+          this.hanleModify1(this.name,this.urlPic,this.id)
+          // setTimeout(done, 1000)
+         
+           done() //关闭
+      } else if(action === 'cancel') {
+         done() //关闭
       }
     },
      async hanleModify1(name,img,id) {
       let data = await modify1Api(name,img,id);
-      console.log(data)
+       if (data.data.status == 1) {
+            sessionStorage.setItem("name",this.name);
+            sessionStorage.setItem("urlPic",this.urlPic);
+              Toast.success(data.data.info);
+        } else {
+            Toast.fail(data.data.info);
+        }
+    
     },
   }
 };
