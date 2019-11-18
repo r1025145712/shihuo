@@ -39,7 +39,7 @@ export const loginApi = (username,password)=>http({
         password: password,
     }
 })
-// 修改
+// 修改图片
 export const modifyApi = (formData)=>http({
     method:"post",
     url:"node/upload/urlImage",
@@ -48,6 +48,16 @@ export const modifyApi = (formData)=>http({
     cache: false,
     // contentType: "multipart/form-data",
     headers: { "content-type": "multipart/form-data" }
+})
+// 修改资料
+export const modify1Api = (name,img,id)=>http({
+    method:"post",
+    url:"node/users/modify",
+    data: {
+        name2:name,
+        img,
+        id
+    },
 })
 export const listApi = (type,channel_type,p_str)=>http({
     method:"get",

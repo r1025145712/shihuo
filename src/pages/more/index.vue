@@ -71,7 +71,7 @@
     <van-dialog v-model="show" title="修改资料" show-cancel-button>
       <div class="form-group">
         <label for="modal_booksAuth">用户昵称</label>
-        <input type="text" class="form-control" id="modal_name" v-model="name" placeholder="请输入昵称" />
+        <input type="text" class="form-control" id="modal_name" v-model="name" ref="modal_name"  placeholder="请输入昵称" />
       </div>
       <div class="tu">
         <img ref="img" :src="urlPic" alt="">
@@ -90,7 +90,7 @@
 import Vue from "vue";
 import { Toast } from "vant";
 import { Dialog } from "vant";
-import { modifyApi } from "@api/shop";
+import { modifyApi ,modify1Api} from "@api/shop";
 Vue.use(Toast);
 Vue.use(Dialog);
 export default {
@@ -130,7 +130,6 @@ export default {
     hanleModify() {
       this.show = !this.show;
       console.log(this.$refs.modal_name)
-      this.title= this.$refs.modal_name.value;
     },
     handleFileChangeCb() {
         //ajax模拟form表单上传
@@ -146,7 +145,12 @@ export default {
              this.urlPic=data.data.urlImage;
              sessionStorage.setItem("name",this.name);
             sessionStorage.setItem("urlPic",this.urlPic);
+            this.hanleModify1(this.name,this.urlPic,this.id)
       }
+    },
+     async hanleModify1(name,img,id) {
+      let data = await modify1Api(name,img,id);
+      console.log(data)
     },
   }
 };
