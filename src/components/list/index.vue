@@ -3,7 +3,7 @@
   <div class="list-view">
     <!-- <RScroll ref="scroll"> -->
     <ul>
-      <router-link v-for="(item,index) in  list" tag="li" :key="index"  :to="{name:'detail',params:{title:item.data.title,img:item.data.img,intro:item.data.intro}}">
+      <router-link v-for="(item,index) in  list" tag="li" :key="index"  :to="{name:'detail',params:{title:item.data.title,img:item.data.img,intro:item.data.intro,price:item.data.price}}">
         <a class="link-a clearfix" v-if="item.show_type=='single1'" >
           <div class="imgs">
             <span class="get_imgs">

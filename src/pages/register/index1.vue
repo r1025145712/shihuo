@@ -36,7 +36,7 @@
           <!-- 			<a href="#" class="forget-pwd">忘记密码</a> -->
         </div>
         <div class="form-item-btn">
-          <a @click="hanleRegister" dace-node="8000_reg">注册</a>
+          <a @click="hanleSub" dace-node="8000_reg">注册</a>
           <input
             type="submit"
          
@@ -76,7 +76,6 @@
 import axios from "axios";
 import Vue from "vue";
 import { Toast } from "vant";
-import { userApi,loginApi } from "@api/shop";
 Vue.use(Toast);
 export default {
   name: "more",
@@ -91,34 +90,50 @@ export default {
   },
   created() {},
   methods: {
-    async hanleRegister() {
-      let data = await userApi(this.username,this.password);
-    if(data.data.status == 1){
-            Toast.success(data.data.info);
-      
-        }else{
-            Toast.fail(data.data.info);
+    hanleSub() {
+      axios({
+        method: "get",
+        url: "http://localhost:3000/user?username=" + this.username
+      }).then(data => {
+        if(data.data.length==0){
+            this.hanleRegister()
         }
+        else{
+            Toast.fail('用户名已存在');
+         }
+         
+      });
     },
-    async hanleAdd() {
-      let data = await loginApi(this.username,this.password);
-     if(data.data.code == 1){
-            console.log(this.$cookies.get("token"))
-            if(this.$cookies.get("token")){
-               sessionStorage.setItem("user", JSON.stringify(data.data.data));
-                  sessionStorage.setItem("id", data.data.data._id);
-                   sessionStorage.setItem("name", data.data.data.name);
-                    sessionStorage.setItem("urlPic", data.data.data.urlPic);
-                // Cookies.set("id",data.data.data._id)
-                // Cookies.set("name",data.data.data.name)
-                // Cookies.set("urlPic",data.data.data.urlPic)
-                 Toast.success(data.data.info);
-               this.$router.push("/more");
-            }    
-        }else{
-            Toast.fail(data.data.info);
-        }
+    hanleRegister() {
+      let name = Math.random()
+        .toString(36)
+        .substr(2, 8);
+        axios({
+          method: "post",
+          url: "http://localhost:3000/user",
+          data: {
+            username: this.username,
+            password: this.password,
+            name: name
+          }
+        });
+          Toast.success("注册成功");
     },
+    hanleAdd() {
+
+      axios({
+        method: "get",
+        url:
+          "http://localhost:3000/user?username=" +
+          this.username +
+          "&password=" +
+          this.password
+      }).then(data => {
+        sessionStorage.setItem("user", JSON.stringify(data.data[0]));
+        this.$router.push("/more");
+        Toast.success("登录成功");
+      });
+    }
   },
   mounted() {}
 };

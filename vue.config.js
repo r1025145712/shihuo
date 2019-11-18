@@ -10,6 +10,13 @@ module.exports={
                     "^/api":"",
                 }
             },
+            "/node":{
+                target:"http://localhost:3600/",
+                changeOrigin:true,
+                pathRewrite:{
+                    "^/node":"",
+                }
+            },
 
         }
     },

@@ -2,10 +2,7 @@
   <section class="mainBox">
     <div class="banner_block">
       <div class="userface">
-        <img
-          src="http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/user/head_02977e3.png"
-          alt
-        />
+        <img :src="urlPic?urlPic:pic" alt />
       </div>
       <div class="login" v-if="box==true">
         <router-link to="/register" tag="a">登录</router-link>
@@ -18,6 +15,7 @@
         <p class="jb">
           金币&nbsp;&nbsp;0
           <a class="out" @click="hanleOut" href="/more">退出 &gt;</a>
+          <a class="out" @click="hanleModify">修改资料 &gt;</a>
         </p>
       </div>
     </div>
@@ -70,40 +68,86 @@
         </li>
       </ul>
     </div>
+    <van-dialog v-model="show" title="修改资料" show-cancel-button>
+      <div class="form-group">
+        <label for="modal_booksAuth">用户昵称</label>
+        <input type="text" class="form-control" id="modal_name" v-model="name" placeholder="请输入昵称" />
+      </div>
+      <div class="tu">
+        <img ref="img" :src="urlPic" alt="">
+      </div>
+      <div class="form-group upload-container">
+        <div class="upload">
+          <p>上传图片</p>
+        </div>
+        <input type="file" @change="handleFileChangeCb" name="booksLogo" ref="madal_usersImg" id="madal_usersImg" class="bookImg" />
+      </div>
+    </van-dialog>
   </section>
 </template>
 
 <script>
-import Vue from 'vue';
-import { Toast } from 'vant';
-
-Vue.use(Toast)
+import Vue from "vue";
+import { Toast } from "vant";
+import { Dialog } from "vant";
+import { modifyApi } from "@api/shop";
+Vue.use(Toast);
+Vue.use(Dialog);
 export default {
   name: "more",
   created() {
     document.title = this.$route.meta.title;
+
     let data = JSON.parse(sessionStorage.getItem("user"));
     this.hanleIf(data);
   },
   data() {
     return {
       box: true,
-      name: ""
+      name: "",
+      id: "",
+      urlPic: "",
+      show: false,
+      pic:"http://sh1.hoopchina.com.cn/fis_static/shihuomobile/static/user/head_02977e3.png"
     };
   },
+  
   methods: {
     hanleIf(data) {
       if (data.name == "") {
         this.box = true;
       } else {
         this.box = false;
-        this.name = data.name;
+        this.name = sessionStorage.getItem("name");
+        this.id =sessionStorage.getItem("id");
+        this.urlPic = sessionStorage.getItem("urlPic");
       }
     },
     hanleOut() {
       sessionStorage.removeItem("user");
-     Toast.success('已退出');
-    }
+      Toast.success("已退出");
+    },
+    hanleModify() {
+      this.show = !this.show;
+      console.log(this.$refs.modal_name)
+      this.title= this.$refs.modal_name.value;
+    },
+    handleFileChangeCb() {
+        //ajax模拟form表单上传
+        let formData = new FormData();
+        //设置上传的文件以及文件的字段
+        formData.append("booksLogo", this.$refs.madal_usersImg.files[0]);
+        this.handleFileModify(formData)
+    },
+    async handleFileModify(formData) {
+      let data = await modifyApi(formData);
+      if (data.data.urlImage) {
+             this.$refs.img.src= data.data.urlImage;
+             this.urlPic=data.data.urlImage;
+             sessionStorage.setItem("name",this.name);
+            sessionStorage.setItem("urlPic",this.urlPic);
+      }
+    },
   }
 };
 </script>
@@ -146,12 +190,13 @@ export default {
   color: #fff;
 }
 .banner_block .login .level {
-    background: url(//sh1.hoopchina.com.cn/fis_static/shihuomobile/static/user/level_1_c8e5252.png) no-repeat;
-    background-size: 100%;
-    display: inline-block;
-    width: .21rem;
-    height: .15rem;
-    vertical-align: middle;
+  background: url(//sh1.hoopchina.com.cn/fis_static/shihuomobile/static/user/level_1_c8e5252.png)
+    no-repeat;
+  background-size: 100%;
+  display: inline-block;
+  width: 0.21rem;
+  height: 0.15rem;
+  vertical-align: middle;
 }
 .banner_block .login a {
   color: #fff;
@@ -163,9 +208,9 @@ export default {
   font-size: 0.12rem;
 }
 .banner_block .login .out {
-    float: right;
-    font-size: .12rem;
-    color: #999;
+  float: right;
+  font-size: 0.12rem;
+  color: #999;
 }
 /* 我的识货 */
 .menu_list {
@@ -205,5 +250,75 @@ export default {
 .menu_list ul li a img {
   width: 0.38rem;
   margin-bottom: 0.1rem;
+}
+/* 修改 */
+.upload-container {
+  position: relative;
+  display: flex;
+    padding: 0 .05rem;
+}
+.upload {
+  width: 80px;
+  height: 34px;
+  border: 1px solid #337ab7;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 34px;
+  cursor: pointer;
+}
+.upload p {
+  width: 80px;
+  height: 34px;
+  padding: 0;
+  text-align: center;
+  line-height: 34px;
+}
+input[type="file"] {
+  display: block;
+}
+
+.bookImg {
+  opacity: 0;
+  position: absolute;
+}
+.form-group {
+    margin-bottom: 15px;
+    padding: .05rem .05rem;
+}
+label {
+    display: inline-block;
+    max-width: 100%;
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+.tu{
+  width: .8rem;
+  height: .8rem;
+  border: 1px solid #ccc;
+  border-radius:.8rem; 
+   margin: .05rem .05rem;
+}
+.tu img{
+  width: 100%;
+  height: 100%;
+   border-radius:.8rem; 
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
 </style>
