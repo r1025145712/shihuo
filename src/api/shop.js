@@ -24,7 +24,7 @@ export const columnApi = (columnId)=>http({
 // 注册
 export const userApi = (username,password)=>http({
     method:"post",
-    url:"node//users/register",
+    url:"node/users/register",
     data:{
         username: username,
         password: password,

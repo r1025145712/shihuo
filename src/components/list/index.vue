@@ -1,10 +1,14 @@
 <template>
-
   <div class="list-view">
     <!-- <RScroll ref="scroll"> -->
     <ul>
-      <router-link v-for="(item,index) in  list" tag="li" :key="index"  :to="{name:'detail',params:{title:item.data.title,img:item.data.img,intro:item.data.intro,price:item.data.price}}">
-        <a class="link-a clearfix" v-if="item.show_type=='single1'" >
+      <router-link
+        v-for="(item,index) in  list"
+        tag="li"
+        :key="index"
+        :to="{name:'detail',params:{title:item.data.title,img:item.data.img,intro:item.data.intro,price:item.data.price}}"
+      >
+        <a class="link-a clearfix" v-if="item.show_type=='single1'">
           <div class="imgs">
             <span class="get_imgs">
               <img get="true" class="lazy" :src="item.data.img" />
@@ -75,17 +79,16 @@
         </a>
       </router-link>
     </ul>
-      <!-- </RScroll> -->
+    <!-- </RScroll> -->
   </div>
-
 </template>
 <script>
 import { listApi } from "@api/shop";
 import { mapState, mapMutations } from "vuex";
 export default {
   name: "list",
-  provide:{
-   img:""
+  provide: {
+    img: ""
   },
   data() {
     return {
@@ -97,16 +100,9 @@ export default {
   created() {
     this.$store.dispatch("shop/handleActionsGetGoods");
     let { type, channel_type } = this.$route.params;
-    if (type == "t") {
-      this.$store.state.shop.type = "";
-    } else {
-      this.$store.state.shop.type = type;
-    }
-    if (channel_type == "q") {
-      this.$store.state.shop.channel_type = "";
-    } else {
-      this.$store.state.shop.channel_type = channel_type;
-    }
+       this.$store.state.shop.type = type == "t" ? "" : type;
+    this.$store.state.shop.channel_type =
+      channel_type == "q" ? "" : channel_type;
     this.hanleList(
       this.$store.state.shop.type,
       this.$store.state.shop.channel_type
@@ -115,20 +111,20 @@ export default {
   computed: {
     ...mapState({
       list: state => state.shop.goodsList,
-       type: state => state.shop.type,
-         channel_type: state => state.shop.channel_type,
+      type: state => state.shop.type,
+      channel_type: state => state.shop.channel_type
     })
   },
   watch: {
     $route(to, from) {
       let { type, channel_type } = to.params;
       // 单个传输
-      if (typeof type == "undefined") {
+      if ( type == "undefined") {
         this.$store.state.shop.type = this.$store.state.shop.type;
       } else {
         this.$store.state.shop.type = type;
       }
-      if (typeof channel_type == "undefined") {
+      if ( channel_type == "undefined") {
         this.$store.state.shop.channel_type = this.$store.state.shop.channel_type;
       } else {
         this.$store.state.shop.channel_type = channel_type;
@@ -143,29 +139,37 @@ export default {
         this.$store.state.shop.type,
         this.$store.state.shop.channel_type
       );
-    },
-      //  list(){
-      //     this.$refs.scroll.handlefinishPullDown();
-      //       this.$refs.scroll.handlefinishPullUp();
-      // }
+    }
+    //  list(){
+    //     this.$refs.scroll.handlefinishPullDown();
+    //       this.$refs.scroll.handlefinishPullUp();
+    // }
   },
   methods: {
     hanleList(type, channel_type) {
-      let arr = { type: type, channel_type: channel_type };
+      let arr = { type: type || "", channel_type: channel_type || "" };
       this.$store.dispatch("shop/handleActionsGetGoods", arr);
     }
   },
   mounted() {
     // console.log(111111111111)
     let that = this;
-    
+
     window.addEventListener("scroll", function() {
-      if (window.pageYOffset + window.innerHeight >= document.documentElement.scrollHeight
+      if (
+        window.pageYOffset + window.innerHeight >=
+        document.documentElement.scrollHeight
       ) {
-      // console.log(  window.pageYOffset + window.innerHeight)
-      // console.log( document.documentElement.scrollHeight)
-      var arr=['1573892884:2:','1573892884:3:','1573892884:4:','1573892884:5:','1573892884:6:']
-       var index=parseInt(0+ Math.random()*5)
+        // console.log(  window.pageYOffset + window.innerHeight)
+        // console.log( document.documentElement.scrollHeight)
+        var arr = [
+          "1573892884:2:",
+          "1573892884:3:",
+          "1573892884:4:",
+          "1573892884:5:",
+          "1573892884:6:"
+        ];
+        var index = parseInt(0 + Math.random() * 5);
         // that.hanleList();
       }
     });

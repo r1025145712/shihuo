@@ -6,7 +6,7 @@
       </div>
       <div class="login" v-if="box==true">
         <router-link to="/register" tag="a">登录</router-link>
-        <a href>注册</a>
+        <router-link to="/register" tag="a">注册</router-link>
         <p class="jb">金币 0</p>
       </div>
       <div class="login" v-if="box==false">

@@ -10,7 +10,8 @@
       <form action class="index-from">
         <div class="input-box name-ipt">
           <label class="text-label text-label-user" for="login-username"></label>
-          <input  v-model="username"
+          <input
+            v-model="username"
             class="username"
             type="text"
             data-text="账号"
@@ -22,7 +23,7 @@
         <div class="input-box pwd-ipt">
           <label class="text-label text-label-pwd" for="login-pwd"></label>
           <input
-             v-model="password"
+            v-model="password"
             type="password"
             class="userpassword"
             data-text="密码"
@@ -39,7 +40,6 @@
           <a @click="hanleRegister" dace-node="8000_reg">注册</a>
           <input
             type="submit"
-         
             value="登录"
             @click.prevent="hanleAdd"
             class="login-btn"
@@ -76,15 +76,15 @@
 import axios from "axios";
 import Vue from "vue";
 import { Toast } from "vant";
-import { userApi,loginApi } from "@api/shop";
+import { userApi, loginApi } from "@api/shop";
 Vue.use(Toast);
 export default {
   name: "more",
-  data(){
-    return{
-      username:"",
-      password:"",
-    }
+  data() {
+    return {
+      username: "",
+      password: ""
+    };
   },
   created() {
     document.title = this.$route.meta.title;
@@ -92,33 +92,30 @@ export default {
   created() {},
   methods: {
     async hanleRegister() {
-      let data = await userApi(this.username,this.password);
-    if(data.data.status == 1){
-            Toast.success(data.data.info);
-      
-        }else{
-            Toast.fail(data.data.info);
-        }
+      let data = await userApi(this.username, this.password);
+      if (data.data.status == 1) {
+        Toast.success(data.data.info);
+      } else {
+        Toast.fail(data.data.info);
+      }
     },
     async hanleAdd() {
-      let data = await loginApi(this.username,this.password);
-     if(data.data.code == 1){
-            console.log(this.$cookies.get("token"))
-            if(this.$cookies.get("token")){
-               sessionStorage.setItem("user", JSON.stringify(data.data.data));
-                  sessionStorage.setItem("id", data.data.data._id);
-                   sessionStorage.setItem("name", data.data.data.name);
-                    sessionStorage.setItem("urlPic", data.data.data.urlPic);
-                // Cookies.set("id",data.data.data._id)
-                // Cookies.set("name",data.data.data.name)
-                // Cookies.set("urlPic",data.data.data.urlPic)
-                 Toast.success(data.data.info);
-               this.$router.push("/more");
-            }    
-        }else{
-            Toast.fail(data.data.info);
+      let data = await loginApi(this.username, this.password);
+      if (data.data.code == 1) {
+        console.log(this.$cookies.get("token"));
+        if (this.$cookies.get("token")) {
+          sessionStorage.setItem("user", JSON.stringify(data.data.data));
+          sessionStorage.setItem("id", data.data.data._id);
+          sessionStorage.setItem("name", data.data.data.name);
+          sessionStorage.setItem("urlPic", data.data.data.urlPic);
+
+          Toast.success(data.data.info);
+          this.$router.push("/more");
         }
-    },
+      } else {
+        Toast.fail(data.data.info);
+      }
+    }
   },
   mounted() {}
 };

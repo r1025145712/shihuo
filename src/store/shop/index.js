@@ -10,9 +10,7 @@ let state = {
 
 let actions = {
    async handleActionsGetGoods({commit},arr){
-    // console.log(arr)
-    let data = await listApi(arr.type,arr.channel_type);
-    // console.log(data.data)
+    let data = await listApi(arr.type||"",arr.channel_type||"");
     commit("handleUpdateShop",data.data)
   },
   handleIndex({commit},index){

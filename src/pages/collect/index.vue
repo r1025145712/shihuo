@@ -1,19 +1,18 @@
 <template>
-    <div>
-        <TOP/>
-    </div>
+  <div>
+    <TOP />
+  </div>
 </template>
 
 <script>
-import TOP from "./top"
+import TOP from "./top";
 export default {
-       components:{
-  TOP
+  components: {
+    TOP
   },
-    }
+};
 </script>
 
 <style scoped>
-
 </style>
 

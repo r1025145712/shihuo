@@ -21,8 +21,6 @@ Vue
   .use(GoodsActionIcon)
   .use(GoodsActionButton);
 
-  
-  Vue.use(Card);
 
 
 Vue.config.productionTip = false;
